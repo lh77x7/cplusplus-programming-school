@@ -5,10 +5,10 @@
 1 - DONE
 2 - DONE
 3 - DONE
-4 - NOT DONE
-5 - NOT DONE
-6 - NOT DONE
-7 - NOT DONE
+4 - DONE
+5 - DONE
+6 - DONE
+7 - DONE
 
 */
 
@@ -24,6 +24,7 @@ void zad4();
 void zad5();
 void zad6();
 void zad7();
+void wyswietlCzas(int, int);
 
 int main(){
 
@@ -73,7 +74,7 @@ void showmenu(){
 }
 
 void zad1() {
-    cout << "Hatala, ul. Targowa 33 Wroclaw" << endl;
+    cout << "Hatala, ul. Targowa 33 Wroclaw." << endl;
 }
 
 void zad2() {
@@ -93,19 +94,35 @@ void zad3() {
 }
 
 void zad4() {
-
+    int wiek;
+    cout << "Podaj swoj wiek: ";
+    cin >> wiek;
+    cout << "Twoj wiek w miesiacach wynosi " << 12 * wiek << ".\n";
 }
 
 void zad5() {
-
+    int stopnie;
+    cout << "Podaj temperature w stopniach Celsiusza: ";
+    cin >> stopnie;
+    double fahrenheit = 1.8 * stopnie + 32.0;
+    cout << stopnie << " stopnie Celsjusza to " << fahrenheit << " stopnie Fahrenheita.\n";
 }
 
 void zad6() {
-
+    int lataSwietlne;
+    cout << "Podaj liczbe lat swietlnych: ";
+    cin >> lataSwietlne;
+    long jednostkiAstro = 63240 * lataSwietlne;
+    cout << lataSwietlne << " lat swietlnych = " << jednostkiAstro << " jedn. astrono.\n";
 }
 
 void zad7() {
-
+    int minuty, godziny;
+    cout << "Podaj liczbe godzin: ";
+    cin >> godziny;
+    cout << "Podaj liczbe minut: ";
+    cin >> minuty;
+    wyswietlCzas(godziny, minuty);    
 }
 
 void entliczek() {
@@ -114,4 +131,8 @@ void entliczek() {
 
 void stoliczek() {
     cout << "Czerwony stoliczek\n";
+}
+
+void wyswietlCzas(int godziny, int minuty){
+    cout << "Czas: " << godziny << ":"<< minuty << endl;
 }
