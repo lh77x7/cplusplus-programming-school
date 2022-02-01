@@ -2,9 +2,9 @@
 
 /*
 
-1 - NOT DONE
-2 - NOT DONE
-3 - NOT DONE
+1 - DONE
+2 - DONE
+3 - DONE
 4 - NOT DONE
 5 - NOT DONE
 6 - NOT DONE
@@ -22,6 +22,7 @@ void zad4();
 void zad5();
 void zad6();
 void zad7();
+void showmenu();
 
 int main(){
 
@@ -71,15 +72,42 @@ void showmenu(){
 }
 
 void zad1() {
-    
+    const float cal = 30.48;
+    float wzrost;
+    cout << "Podaj wzrost w centrymetrach: "; cin >> wzrost;
+    cout << wzrost << " centymetow to " << int(wzrost / cal) << " cali oraz ";
+    cout << ((wzrost / cal) - int(wzrost / cal))<< " stop(y).\n";
 }
 
 void zad2() {
+    int stopa, cal, waga;
+    float wzrost, wagaKg, BMI;
+    const float mnoznikWzrostu = 0.0254;
+
+    cout << "Podaj dane wzrostu. W stopach: "; cin >> stopa;
+    cout << "W calach: ";  cin >> cal;
+    cout << "Pora na wage (w funtach): "; cin >> waga;
+    cout << 12 * stopa + cal << " calow wzrostu\n";
+    wzrost = (12 * stopa + cal) * mnoznikWzrostu; 
+    wagaKg = waga / 2.2;
+    cout << wzrost << "  metrow wzrostu\n";
+    cout << wagaKg << "  kilogramow\n";
+    cout << "Pora obliczyc wspolczynnik BMI\n";
+    BMI = wagaKg / (wzrost * wzrost);
+    cout << "Twoje BMI wynosi: " << BMI << endl;
 
 }
 
 void zad3() {
-        
+    float stopnie, minuty, sekundy;
+    float przeliczStopnie;
+    cout << "Podaj dlugosc w stopniach, minutach i sekundach:" << endl;
+    cout << "Najpierw podaj stopnie: "; cin >> stopnie;
+    cout << "Nastepnie podaj minuty stopnia luku: "; cin >> minuty;
+    cout << "Na koniec podaj sekundy luku: "; cin >> sekundy;
+    przeliczStopnie = (minuty * 60 + sekundy) / 3600;
+    cout << stopnie << " stopni, " << minuty << " minut, " << sekundy << " sekund = ";
+    cout << stopnie + przeliczStopnie << " stopni.\n";  
 }
 
 void zad4() {
