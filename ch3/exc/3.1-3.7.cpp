@@ -5,7 +5,7 @@
 1 - DONE
 2 - DONE
 3 - DONE
-4 - NOT DONE
+4 - DONE
 5 - NOT DONE
 6 - NOT DONE
 7 - NOT DONE
@@ -111,7 +111,15 @@ void zad3() {
 }
 
 void zad4() {
-    
+    long sekundy;
+    cout << "Podaj liczbe sekund: ";
+    cin >> sekundy;
+    const long minuty = 60;
+    const long godziny = 3600;
+    const long dni = 3600 * 24;
+
+    cout << sekundy << " sekund = " << sekundy / dni << " dni, " << (sekundy / godziny) % 24 << " godzin, " ;
+    cout << (sekundy / minuty) % minuty << " minut, " << sekundy % minuty << " sekund\n";
 }
 
 void zad5() {
