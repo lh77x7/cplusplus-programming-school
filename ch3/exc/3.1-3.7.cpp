@@ -6,7 +6,7 @@
 2 - DONE
 3 - DONE
 4 - DONE
-5 - NOT DONE
+5 - DONE
 6 - NOT DONE
 7 - NOT DONE
 
@@ -112,18 +112,24 @@ void zad3() {
 
 void zad4() {
     long sekundy;
+    const long minuta = 60;
+    const long godzina = 3600;
+    const long doba = 86400;
+    const long dzien = 24;
     cout << "Podaj liczbe sekund: ";
     cin >> sekundy;
-    const long minuty = 60;
-    const long godziny = 3600;
-    const long dni = 3600 * 24;
-
-    cout << sekundy << " sekund = " << sekundy / dni << " dni, " << (sekundy / godziny) % 24 << " godzin, " ;
-    cout << (sekundy / minuty) % minuty << " minut, " << sekundy % minuty << " sekund\n";
+    cout << sekundy << " sekund = " << sekundy / doba << " dni, " << (sekundy / godzina) % dzien << " godzin, " ;
+    cout << (sekundy / minuta) % minuta << " minut, " << sekundy % minuta << " sekund\n";
 }
 
 void zad5() {
-    
+    cout.setf(ios_base::fixed, ios_base::floatfield);
+    long long populacjaPolski, populacjaSwiata;
+    const float procent = 100;
+    cout << "Podaj liczbe ludnosci swiata: "; cin >> populacjaSwiata;
+    cout << "Podaj liczbe ludnosci Polski: "; cin >> populacjaPolski;
+    cout << "Populacja Polski stanowi " << (float(populacjaPolski) / float(populacjaSwiata))*procent;
+    cout << " populacja swiata.\n";
 }
 
 void zad6() {
