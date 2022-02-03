@@ -8,7 +8,7 @@
 4 - DONE
 5 - DONE
 6 - DONE
-7 - NOT DONE
+7 - DONE
 
 */
 
@@ -148,10 +148,11 @@ void zad6() {
 }
 
 void zad7() {
-    float kilometry, benzyna;
-    float galon, mila;
-    const float galonLitr = 3.875;
-    const float kilometrMila = 0.6214;
+    float benzyna;
+    const float sto = 100;
+    const float przelicz = 2.3521;
     cout << "Podaj ilosc zuzytej benzyny na 100 km: ";
     cin >> benzyna;
+    cout << sto / benzyna << " to spalanie km/l.\n";
+    cout << (sto / benzyna) * przelicz << " to spalanie galon/mila.\n"; 
 }
