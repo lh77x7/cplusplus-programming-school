@@ -19,5 +19,5 @@ int main(){
     cout << "Objetosc: " << ps->volume << " stop szesciennych\n";   // metoda 1
     cout << "Cena: " << ps->price << " zl" << endl; // metoda 1
     delete ps;  // zwolnienie pamieci
-    return 0; 
+    return 0;
 }
