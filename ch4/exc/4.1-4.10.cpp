@@ -2,8 +2,8 @@
 
 /*
 
-1 - NOT DONE
-2 - NOT DONE
+1 - DONE
+2 - DONE
 3 - NOT DONE
 4 - NOT DONE
 5 - NOT DONE
@@ -16,8 +16,10 @@
 */
 
 #include <iostream>
+#include <string>
+#include <cstring>
 using namespace std;
-
+const int ArSize = 20;
 void zad1();
 void zad2();
 void zad3();
@@ -87,42 +89,63 @@ void showmenu(){
 }
 
 void zad1() {
-    
+    string imie, nazwisko;
+    int ocena, lata;
+
+    getchar();
+    cout << "Jak masz na imie? ";
+    getline(cin, imie);
+    cout << "Jak sie nazywasz? ";
+    getline(cin, nazwisko);
+    cout << "Na jaka ocene zaslugujesz? ";
+    cin >> ocena;
+    cout << "Ile masz lat? ";
+    cin >> lata;
+    cout << "Nazwisko: " << nazwisko <<", " << imie << endl;
+    cout << "Ocena: " << ocena - 1 << endl;
+    cout << "Wiek: " << lata << endl;
 }
 
 void zad2() {
-    
+    getchar();
+    string name, dessert;
+    cout << "Podaj swoje imie:\n";
+    getline(cin, name);
+    cout << "Podaj swoj ulubiony deser:\n";
+    getline(cin, dessert);
+    cout << "Mam dla ciebie " << dessert;
+    cout << ", " << name << ".\n";
 }
 
 void zad3() {
-      
+    getchar();
 }
 
 void zad4() {
-    
+    getchar();
 }
 
 void zad5() {
-    
+    getchar();
 }
 
 void zad6() {
-    
+    getchar();
 
 }
 
 void zad7() {
-     
+    getchar();
 }
 
 void zad8(){
-
+    getchar();
 }
 
 void zad9(){
-
+    getchar();
 }
 
 void zad10(){
-
+    getchar();
 }
