@@ -4,8 +4,8 @@
 
 1 - DONE
 2 - DONE
-3 - NOT DONE
-4 - NOT DONE
+3 - DONE
+4 - DONE
 5 - NOT DONE
 6 - NOT DONE
 7 - NOT DONE
@@ -119,10 +119,22 @@ void zad2() {
 
 void zad3() {
     getchar();
+    char imie[ArSize], nazwisko[ArSize];
+    cout << "Podaj imie: ";
+    cin.getline(imie, ArSize);
+    cout << "Podaj nazwisko: ";
+    cin.getline(nazwisko, ArSize);
+    cout << "Oto informacje zestawione w jeden napis: " << nazwisko << ", " << imie << endl;
 }
 
 void zad4() {
     getchar();
+    string imie, nazwisko;
+    cout << "Podaj imie: ";
+    getline(cin, imie);
+    cout << "Podaj nazwisko: ";
+    getline(cin, nazwisko);
+    cout << "Oto informacje zestawione w jeden napis: " << nazwisko << ", " << imie << endl;
 }
 
 void zad5() {
