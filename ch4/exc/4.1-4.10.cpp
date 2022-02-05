@@ -6,9 +6,9 @@
 2 - DONE
 3 - DONE
 4 - DONE
-5 - NOT DONE
-6 - NOT DONE
-7 - NOT DONE
+5 - DONE
+6 - DONE
+7 - DONE
 8 - NOT DONE
 9 - NOT DONE
 10 - NOT DONE
@@ -139,15 +139,64 @@ void zad4() {
 
 void zad5() {
     getchar();
+    struct Batonik{
+        string nazwa;
+        float waga;
+        int kalorie;
+    } snack;
+
+    snack = { "Snickers", 2.49, 3};
+    cout << "Nazwa: " << snack.nazwa << ", waga: " << snack.waga << ", kalorie: " << snack.kalorie << endl; 
 }
 
 void zad6() {
     getchar();
+    struct Batonik{
+        string nazwa;
+        float waga;
+        int kalorie;
+    };
+    Batonik tablicaStruktur[3] = {
+        {"Snickers", 2.49, 3},
+        {"Mars",2.99, 5},
+        {"Baunty", 3.12, 7}
+    };
 
+    cout << "Oto twoje batoniki: " << endl;
+    cout << "batonik 1: " << endl;
+    cout << "nazwa: " << tablicaStruktur[0].nazwa << endl;
+    cout << "waga: " << tablicaStruktur[0].waga << endl;
+    cout << "kalorie: " << tablicaStruktur[0].kalorie << endl;
+    cout << "batonik 2: " << endl;
+    cout << "nazwa: " << tablicaStruktur[1].nazwa << endl;
+    cout << "waga: " << tablicaStruktur[1].waga << endl;
+    cout << "kalorie: " << tablicaStruktur[1].kalorie << endl;
+    cout << "batonik 3: " << endl;
+    cout << "nazwa: " << tablicaStruktur[2].nazwa << endl;
+    cout << "waga: " << tablicaStruktur[2].waga << endl;
+    cout << "kalorie: " << tablicaStruktur[2].kalorie << endl;
 }
 
 void zad7() {
     getchar();
+    struct Pizza {
+        string nazwa;
+        float srednica;
+        float waga;
+    } dane;
+
+    cout << "Podaj dane dotyczace pizzy\n";
+    cout << "nazwa: " << endl;
+    getline(cin, dane.nazwa);
+    cout << "Podaj srednice pizzy: "; 
+    cin >> dane.srednica;
+    cout << "Podaj wage pizzy: ";
+    cin >> dane.waga;
+    cout << "Wyswietlam wprowadzone dane:" << endl;
+    cout << "nazwa: "<< dane.nazwa << endl;
+    cout << "srednica: "<< dane.srednica << endl;
+    cout << "waga: "<< dane.waga << endl;
+    cout << "koniec!" << endl; 
 }
 
 void zad8(){
