@@ -9,15 +9,16 @@
 5 - DONE
 6 - DONE
 7 - DONE
-8 - NOT DONE
-9 - NOT DONE
-10 - NOT DONE
+8 - DONE
+9 - DONE
+10 - DONE
 
 */
 
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <vector>
 using namespace std;
 const int ArSize = 20;
 void zad1();
@@ -201,12 +202,76 @@ void zad7() {
 
 void zad8(){
     getchar();
+    struct Pizza {
+        string nazwa;
+        float srednica;
+        float waga;
+    };
+    Pizza * danePizzy = new Pizza;  // alokacja pamieci na strukturę
+    cout << "Podaj nazwe: ";
+    getline(cin, danePizzy->nazwa);
+    cout << "Podaj srednice: ";
+    cin >> danePizzy->srednica;
+    cout << "Podaj wage: ";
+    cin >> danePizzy->waga;
+    cout << "Oto twoje dane: " << endl;
+    cout << "nazwa: " << danePizzy->nazwa << endl;
+    cout << "srednica: " << danePizzy->srednica << endl;
+    cout << "waga: " << danePizzy->waga << endl;
+    delete danePizzy;
 }
 
 void zad9(){
     getchar();
+    struct Batonik{
+        string nazwa;
+        float waga;
+        int kalorie;
+    };
+
+    // struktura 1
+    Batonik *ps1 = new Batonik;
+    ps1->nazwa = "snickers";
+    ps1->waga = 22.2;
+    ps1->kalorie = 3;
+    // struktura 2
+    Batonik *ps2 = new Batonik;
+    ps2->nazwa = "mars";
+    ps2->waga = 11.1;
+    ps2->kalorie = 4;
+    // struktura 3
+    Batonik *ps3 = new Batonik;
+    ps3->nazwa = "knnopers";
+    ps3->waga = 5.5;
+    ps3->kalorie = 5;
+
+    cout << "------------------DANE-----------------------" << endl;
+    cout << "Wyswietl wszystkie:" << endl;
+    cout << "Batonik 1: ";
+    cout << ps1->nazwa << ", " << ps1->waga << ", " << ps1->kalorie << endl;
+    cout << "Batonik 2: ";
+    cout << ps2->nazwa << ", " << ps2->waga << ", " << ps2->kalorie << endl;
+    cout << "Batonik 3: ";
+    cout << ps3->nazwa << ", " << ps3->waga << ", " << ps3->kalorie << endl;
+    cout << "------------------KONIEC---------------------" << endl;
+
+
+
 }
 
 void zad10(){
     getchar();
+    vector<double> tablica(3);
+    cout << "1 wynik: ";
+    cin >> tablica[0];
+    cout << "2 wynik: ";
+    cin >> tablica[1];
+    cout << "3 wynik: ";
+    cin >> tablica[2];
+    cout << "Wyniki" << endl;
+    cout << "1: " << tablica[0] << endl;
+    cout << "2: " << tablica[1] << endl;
+    cout << "3: " << tablica[2] << endl;
+    double srednia = (tablica[0] + tablica[1] + tablica[2]) / 3;
+    cout << "srednia wynikow: " << srednia << endl;
 }
