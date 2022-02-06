@@ -254,9 +254,6 @@ void zad9(){
     cout << "Batonik 3: ";
     cout << ps3->nazwa << ", " << ps3->waga << ", " << ps3->kalorie << endl;
     cout << "------------------KONIEC---------------------" << endl;
-
-
-
 }
 
 void zad10(){
