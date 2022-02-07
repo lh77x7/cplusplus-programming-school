@@ -2,7 +2,7 @@
 
 /*
 
-1 - NOT DONE
+1 - DONE
 2 - NOT DONE
 3 - NOT DONE
 4 - NOT DONE
@@ -91,6 +91,14 @@ void showmenu(){
 
 void zad1() {
     getchar();
+    int liczba1, liczba2;
+    int suma = 0;
+    cout << "Podaj 1 liczbe: "; cin >> liczba1;
+    cout << "Podaj 2 liczbe: "; cin >> liczba2;
+    for(int i = liczba1; i <= liczba2; i++){
+        suma += i;
+    }
+    cout << "Suma liczb miedzy" << liczba1 << " i " << liczba2 << " wynosi " << suma << endl;
 }
 
 void zad2() {
