@@ -3,8 +3,8 @@
 /*
 
 1 - DONE
-2 - NOT DONE
-3 - NOT DONE
+2 - DONE
+3 - DONE
 4 - NOT DONE
 5 - NOT DONE
 6 - NOT DONE
@@ -21,6 +21,7 @@
 #include <vector>
 using namespace std;
 const int ArSize = 20;
+const int MaxRozmiar = 100;
 void zad1();
 void zad2();
 void zad3();
@@ -103,10 +104,25 @@ void zad1() {
 
 void zad2() {
     getchar();
+    vector<long double>tablica(MaxRozmiar);
+    tablica[0] = tablica[1] = 1L;
+    for(int i = 2; i < MaxRozmiar; i++)
+        tablica[i] = i * tablica[i - 1];
+    for(int i = 0; i < MaxRozmiar; i++)
+        std::cout << i << "! = " << tablica[i] << std::endl;
 }
 
 void zad3() {
     getchar();
+    double liczba, suma = 0;
+    cout << "Podaj liczbe (0 - konczy): "; cin >> liczba;
+    while(liczba != 0)
+    {
+        suma += liczba;
+        cout << "Podaj kolejna liczbe (0 - konczy): ";
+        cin >> liczba; 
+    }
+    cout << "Suma liczb wynosi : " << suma << endl;
 }
 
 void zad4() {
