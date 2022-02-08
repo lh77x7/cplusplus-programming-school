@@ -6,7 +6,7 @@
 2 - DONE
 3 - DONE
 4 - DONE
-5 - NOT DONE
+5 - DONE
 6 - NOT DONE
 7 - NOT DONE
 8 - NOT DONE
@@ -149,7 +149,6 @@ void zad4() {
 
 void zad5() {
     getchar();
-    int tablicaWynikow[12];
     const char *miesiace[12] =
     {
         "styczen",
@@ -165,13 +164,24 @@ void zad5() {
         "listopad",
         "grudzien"
     };
-    tablicaWynikow[0] = 0;
-    for(int i = 1, miesiace = 1; i <= 12; i++, miesiace++){
-        cout << "Podaj i od " << miesiace << endl;
-        cin >> i;
-        tablicaWynikow[i++] = i;
+    int wynik, tablicaWynikow[12];
+    for(int i = 0; i < 12; i++)
+    {
+        cout << "Podaj wynik: ";
+        cin >> wynik;
+        cout << "Twoj wynik to "<< wynik << endl;
+        tablicaWynikow[i] = wynik;
     }
-    cout << endl;
+    cout << "-----------------" << endl;
+    cout << "Tablica wynikow: " << endl;
+    int suma = 0;
+    for(int i = 0; i < 12; i++)
+    {
+        cout << miesiace[i] << ", wynik: " << tablicaWynikow[i] << endl;
+        suma += tablicaWynikow[i];
+        
+    }
+    cout << "\nSuma wynosi " << suma << endl;
 }
 
 void zad6() {
