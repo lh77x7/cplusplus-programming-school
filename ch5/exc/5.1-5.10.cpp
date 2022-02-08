@@ -5,7 +5,7 @@
 1 - DONE
 2 - DONE
 3 - DONE
-4 - NOT DONE
+4 - DONE
 5 - NOT DONE
 6 - NOT DONE
 7 - NOT DONE
@@ -19,6 +19,7 @@
 #include <string>
 #include <cstring>
 #include <vector>
+#include <math.h>
 using namespace std;
 const int ArSize = 20;
 const int MaxRozmiar = 100;
@@ -127,10 +128,50 @@ void zad3() {
 
 void zad4() {
     getchar();
+    // inwestycja Dafne - procent prosty, inwestycja Cleo - procent składny
+    float kwota = 100;
+    float inwestycjaDafne, inwestycjaCleo;
+    for(int i = 0; i <= 50; i++) // maksymalny czas inwestycji to 50 lat
+    {
+        inwestycjaDafne = kwota * (1 + 0.1 * i ); // procent prosty
+        cout << "Dane ma kwote " << inwestycjaDafne << " w roku " << i << endl;
+
+        inwestycjaCleo = kwota * pow(1.05, i); // procent skladany
+        cout << "Cleo ma kwote " << inwestycjaCleo << " w roku " << i << endl;
+
+        if(inwestycjaCleo > inwestycjaDafne)
+        {
+            cout << "Po " << i << " latach Cleo zyska wiecej od Dafne.\n";
+            break;
+        }
+    }
 }
 
 void zad5() {
-    getchar(); 
+    getchar();
+    int tablicaWynikow[12];
+    const char *miesiace[12] =
+    {
+        "styczen",
+        "luty",
+        "marzec",
+        "kwiecien",
+        "maj",
+        "czerwiec",
+        "lipiec",
+        "sierpien",
+        "wrzesien",
+        "pazdziernik",
+        "listopad",
+        "grudzien"
+    };
+    tablicaWynikow[0] = 0;
+    for(int i = 1, miesiace = 1; i <= 12; i++, miesiace++){
+        cout << "Podaj i od " << miesiace << endl;
+        cin >> i;
+        tablicaWynikow[i++] = i;
+    }
+    cout << endl;
 }
 
 void zad6() {
@@ -145,7 +186,7 @@ void zad8(){
     getchar();
 }
 
-void zad9(){
+void zad9(){ 
     getchar();
 }
 
