@@ -8,7 +8,7 @@
 4 - DONE
 5 - DONE
 6 - DONE
-7 - NOT DONE
+7 - DONE
 8 - NOT DONE
 9 - NOT DONE
 10 - NOT DONE
@@ -244,7 +244,27 @@ void zad6() {
 }
 
 void zad7() {
-    getchar(); 
+    getchar();
+    struct car {
+        string marka;
+        int rokBudowy;
+    } daneSamochodu[MaxRozmiar];
+    int i = 0, ilosc;
+    cout << "Ile samochodow chcesz skatalogowac?"; 
+    cin >> ilosc;
+    while(i++ < ilosc)
+    {
+        cout << "Samochod #"<< i <<":";
+        getchar();
+        cout << "Prosze podac marke: ";
+        getline(cin, daneSamochodu[i].marka);
+        cout << "Rok produkcji: ";
+        cin >> daneSamochodu[i].rokBudowy;
+    }
+    for(int i = 0; i < ilosc; i++)
+    {
+        cout << daneSamochodu[i+1].rokBudowy << " " << daneSamochodu[i+1].marka << endl;        
+    }
 }
 
 void zad8(){
