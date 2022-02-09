@@ -7,7 +7,7 @@
 3 - DONE
 4 - DONE
 5 - DONE
-6 - NOT DONE
+6 - DONE
 7 - NOT DONE
 8 - NOT DONE
 9 - NOT DONE
@@ -186,6 +186,61 @@ void zad5() {
 
 void zad6() {
     getchar();
+    const char *miesiace[12] = // tablica wskaznikow 12 lańcuchów
+    {
+        "styczen",
+        "luty",
+        "marzec",
+        "kwiecien",
+        "maj",
+        "czerwiec",
+        "lipiec",
+        "sierpien",
+        "wrzesien",
+        "pazdziernik",
+        "listopad",
+        "grudzien"
+    };
+    int i, j;
+    int wynik, tablicaWynikow[3][12];
+    int sumaWszystkich = 0, pierwszyRok = 0, drugiRok = 0, trzeciRok = 0;
+    for(i = 0; i < 3; i++) // lata
+    {
+        for(j = 0; j < 12; j++){ // miesiace
+            cout << "Podaj wynik: ";
+            cin >> wynik;
+            cout << "Twoj wynik to "<< wynik << " w roku " << i + 1 << endl;
+            tablicaWynikow[i][j] = wynik;
+        }
+    }
+    cout << "---------------------------------" << endl;
+    cout << "Tablica wynikow: " << endl;
+    
+    // sprawdz czy wyswietla wszystkie wyniki przez 3 lata, jesli tak
+    // to sumuj pierwszy rok, drugi rok, trzeci rok i calosc
+    for(i = 0; i < 3; i++)
+    {
+        cout << "rok " << i + 1 << ":\n";
+        pierwszyRok = 0, drugiRok = 0, trzeciRok = 0;
+        for(j = 0; j < 12; j++)
+        {
+            cout << miesiace[j] << ":" << tablicaWynikow[i][j] << " ";    // wyswietl wszystkie
+            sumaWszystkich += tablicaWynikow[i][j]; // suma wszystkich wynikow
+            pierwszyRok += tablicaWynikow[0][j];    // suma pierwszego roku
+            drugiRok += tablicaWynikow[1][j];       // suma drugiego roku
+            trzeciRok += tablicaWynikow[2][j];      // suma trzeciego roku
+        }
+        cout << endl << endl;
+    }
+    cout << "---------------------------------" << endl;
+    cout << "Suma pierwszy rok " << pierwszyRok << endl;
+    cout << "Suma drugi rok " << drugiRok << endl;
+    cout << "Suma trzeci rok " << trzeciRok << endl;
+    cout << "Suma wszystkich lat " << sumaWszystkich << endl;
+    cout << "Suma trzech lat rowna jest sumie kazdego roku!" << endl;
+    cout << "Sprawdzam: " << endl;
+    cout << pierwszyRok + drugiRok + trzeciRok << " = " << sumaWszystkich << endl;
+
 }
 
 void zad7() {
