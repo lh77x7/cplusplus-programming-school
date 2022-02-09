@@ -9,8 +9,8 @@
 5 - DONE
 6 - DONE
 7 - DONE
-8 - NOT DONE
-9 - NOT DONE
+8 - DONE
+9 - DONE
 10 - NOT DONE
 
 */
@@ -110,7 +110,7 @@ void zad2() {
     for(int i = 2; i < MaxRozmiar; i++)
         tablica[i] = i * tablica[i - 1];
     for(int i = 0; i < MaxRozmiar; i++)
-        std::cout << i << "! = " << tablica[i] << std::endl;
+        cout << i << "! = " << tablica[i] << endl;
 }
 
 void zad3() {
@@ -269,12 +269,43 @@ void zad7() {
 
 void zad8(){
     getchar();
+    char wyraz[ArSize];
+    int liczba = 0;
+    cout << "Podaj slowa (kiedy skonczyczysz, napisz \"gotowe\")";
+    cin.getline(wyraz, ArSize);
+    while(strcmp(wyraz, "gotowe")){
+        cin.getline(wyraz, ArSize);
+        ++liczba;
+    }
+    cout << "Podano " << liczba << " slow." << endl;
 }
 
 void zad9(){ 
     getchar();
+    string wyraz;
+    int liczba = 0;
+    cout << "Podaj slowa (kiedy skonczyczysz, napisz \"gotowe\")";
+    getline(cin, wyraz);
+    while(wyraz != "gotowe")
+    {
+        getline(cin, wyraz);
+        ++liczba;
+    }
+    cout << "Podano " << liczba << " slow." << endl;
 }
 
 void zad10(){
     getchar();
+    int wiersze, i, j;
+    char znak = '*', znak1 = '.';
+    cout << "Podaj liczbe wierszy: ";
+    cin >> wiersze;
+    for(i = 0; i < wiersze; i++)
+    {
+        for(j = wiersze; j > i; j--)
+        {
+            cout << znak1;
+        }
+        cout << znak << endl;       
+    }   
 }
