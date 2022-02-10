@@ -296,7 +296,7 @@ void zad9(){
 
 void zad10(){
     getchar();
-    int wiersze, i, j;
+    int wiersze, i, j, k;
     char znak = '*', znak1 = '.';
     cout << "Podaj liczbe wierszy: ";
     cin >> wiersze;
@@ -306,6 +306,11 @@ void zad10(){
         {
             cout << znak1;
         }
-        cout << znak << endl;       
+        k = 0;
+        while (k < wiersze / 2)
+        {
+            cout << znak;
+        }
+        cout << endl;
     }   
 }
