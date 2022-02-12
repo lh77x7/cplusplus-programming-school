@@ -3,7 +3,7 @@
 /*
 
 1 - DONE
-2 - NOT DONE
+2 - DONE
 3 - DONE
 4 - NOT DONE
 5 - NOT DONE
@@ -32,6 +32,7 @@ void roslinozerca();
 void pianista();
 void drzewo();
 void gra();
+const int ROZMIAR = 10;
 
 int main(){
 
@@ -107,7 +108,43 @@ void zad1() {
 }
 
 void zad2() {
-    getchar();
+    double datki[ROZMIAR];
+    cout << "Podaj wysokosci datkow." << endl;
+    cout << "Mozesz podac maksymalnie " << ROZMIAR << " datkow" << endl;
+    cout << "<q konczy lub dana nieliczowa>" << endl;
+    cout << "datek 1: ";
+    int i = 0;
+    // wczytuj dane
+    while(i < ROZMIAR && cin >> datki[i])
+    {
+        if(!cin){   // dane wejsciowe zakonczone wartoscia nieliczbowa
+            cin.clear();
+            cin.get();
+        }
+        if(++i < ROZMIAR)
+            cout << "datek " << i + 1 << ": ";
+    }
+    // wylicz srednia
+    double suma = 0.0;
+    double srednia;
+    for(int j = 0; j < i; j++){
+        suma += datki[j];
+        srednia = suma / j;
+    
+        if (datki[j] > srednia) {
+            cout << j + 1 << " wieksze od sredniej." << endl;
+        }
+    }
+    cout << srednia << " = srednia wysokosc " << i << " datkow.\n";
+        
+    // pokaz wyniki
+    if(i == 0)
+        cout << "Nie podates zadnych datkow\n";
+    else
+    {
+        //srednia = suma / i;
+        
+    }
     
 }
 
