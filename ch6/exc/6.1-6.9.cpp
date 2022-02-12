@@ -5,7 +5,7 @@
 1 - DONE
 2 - DONE
 3 - DONE
-4 - NOT DONE
+4 - DONE
 5 - NOT DONE
 6 - NOT DONE
 7 - NOT DONE
@@ -15,8 +15,22 @@
 */
 
 #include <iostream>
+#include <algorithm>
 #include <cctype>
 using namespace std;
+const int strsize = 30;
+struct zpdw {
+        char imie[strsize];         // prawdziwe imie
+        char stanowisko[strsize];   // stanowisko sluzbowe
+        char pseudozpdw[strsize];   // pseudonim ZDPW
+        int preferencje;            // 0 = imie, 1 = stanowisko, 2 = pseudonim
+    } tablicaStruktur[3] = 
+{
+        {"leszek", "wszechstronny programista", "gigant", 1},
+        {"pawel", "ekspert bezpieczenstwa", "hacker", 2},
+        {"jan", "frontend developer", "magiczny kolo", 3}
+};
+
 void zad1();
 void zad2();
 void zad3();
@@ -32,7 +46,15 @@ void roslinozerca();
 void pianista();
 void drzewo();
 void gra();
-const int ROZMIAR = 10;
+void menuStruktury();
+void sortowanieImie();
+void sortowanieStanowisko();
+void sortowaniePseudonim();
+void sortowaniePreferencje();
+bool cmpA(zpdw, zpdw);
+bool cmpB(zpdw, zpdw);
+bool cmpC(zpdw, zpdw);
+bool cmpD(zpdw, zpdw);
 
 int main(){
 
@@ -86,12 +108,16 @@ int main(){
 }
 
 void showmenu(){
+    
     cout << "Wybierz od 1 do 9: \n";
+
 }
 
 void zad1() {
+    
     char ch;
     char znak = '@';
+    
     cin.get(ch);
     while(ch != znak)
     {
@@ -108,7 +134,10 @@ void zad1() {
 }
 
 void zad2() {
+    
+    const int ROZMIAR = 10;
     double datki[ROZMIAR];
+    
     cout << "Podaj wysokosci datkow." << endl;
     cout << "Mozesz podac maksymalnie " << ROZMIAR << " datkow" << endl;
     cout << "<q konczy lub dana nieliczowa>" << endl;
@@ -140,17 +169,14 @@ void zad2() {
     // pokaz wyniki
     if(i == 0)
         cout << "Nie podates zadnych datkow\n";
-    else
-    {
-        //srednia = suma / i;
-        
-    }
-    
 }
 
 void zad3() {
-    showmenu2();
+    
     char wybor;
+
+    showmenu2();
+    
     cin >> wybor;
     while(wybor != 'q')
     {
@@ -170,47 +196,146 @@ void zad3() {
 }
 
 void zad4() {
-    getchar();
+
+    char wybor;
+
+    menuStruktury();
+
+    cin >> wybor;
+    while(wybor != 'q')
+    {
+        switch(wybor)
+        {
+            case 'a': sortowanieImie(); break;
+            case 'b': sortowanieStanowisko(); break;
+            case 'c': sortowaniePseudonim(); break;
+            case 'd': sortowaniePreferencje(); break;
+            default: cout << "Prosze podac litere r, p, t lub g: "; break;
+            case 'q': break;
+        }
+        menuStruktury();
+        cin >> wybor;
+    }
+    cout << "Do zobaczenia!\n";
+
 }
 
 void zad5() {
-    getchar();
+    
 }
 
 void zad6() {
-    getchar();
     
 }
 
 void zad7() {
-    getchar();
+    
 }
 
 void zad8(){
-    getchar();
+    
 }
 
 void zad9(){ 
-    getchar();
+    
 }
 
 void showmenu2(){
+    
     cout << "\nr) roslinozerca    p) pianista\n";
     cout << "d) drzewo          g) gra\n";
+
 }
 
 void roslinozerca(){
+    
     cout << "Nie jestem tylko roslinozerca.\n";
+
 }
 
 void pianista(){
+
     cout << "Pianista to swietny film.\n";
+
 }
 
 void drzewo(){
+
     cout << "Klon jest drzewem.\n";
+
 }
 
 void gra(){
+
     cout << "Jaka chcesz zagrac gre?\n";
+
+}
+
+void sortowanieImie(){
+
+    sort(tablicaStruktur, tablicaStruktur + 3, cmpA);
+    for(int i = 0; i < 3; i++){
+        cout << tablicaStruktur[i].imie << endl;
+    }
+}
+
+void sortowanieStanowisko(){
+
+    sort(tablicaStruktur, tablicaStruktur + 3, cmpB);
+    for(int i = 0; i < 3; i++){
+        cout << tablicaStruktur[i].stanowisko << endl;
+    }
+}
+
+void sortowaniePseudonim(){
+
+    sort(tablicaStruktur, tablicaStruktur + 3, cmpC);
+    for(int i = 0; i < 3; i++){
+        cout << tablicaStruktur[i].pseudozpdw << endl;
+    } 
+}
+
+void sortowaniePreferencje(){
+
+    sort(tablicaStruktur, tablicaStruktur + 3, cmpD);
+    for(int i = 0; i < 3; i++){
+        cout << tablicaStruktur[i].preferencje << endl;
+    }
+}
+
+void menuStruktury(){
+
+    cout << "\nZakon Programistow Dobrej Woli\n";
+    cout << "a. lista wg imion          b. lista wg stanowisk\n";
+    cout << "c. lista wg pseudonimow    d. lista wg preferencji\n";
+    cout << "q. koniec\n";
+
+}
+
+bool cmpA(zpdw A, zpdw B)
+{
+
+	return A.imie > B.imie;
+
+}
+
+bool cmpB(zpdw A, zpdw B)
+{
+
+	return A.stanowisko > B.stanowisko;
+
+}
+
+bool cmpC(zpdw A, zpdw B)
+{
+
+	return A.pseudozpdw > B.pseudozpdw;
+
+}
+
+bool cmpD(zpdw A, zpdw B)
+{
+
+    return A.preferencje > B.preferencje;
+
 }
