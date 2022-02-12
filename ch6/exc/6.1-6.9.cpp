@@ -4,7 +4,7 @@
 
 1 - DONE
 2 - NOT DONE
-3 - NOT DONE
+3 - DONE
 4 - NOT DONE
 5 - NOT DONE
 6 - NOT DONE
@@ -27,6 +27,11 @@ void zad7();
 void zad8();
 void zad9();
 void showmenu();
+void showmenu2();
+void roslinozerca();
+void pianista();
+void drzewo();
+void gra();
 
 int main(){
 
@@ -34,7 +39,7 @@ int main(){
     int choice;
     cin >> choice;
 
-    while(choice != 1000)
+    while(choice != 100)
     {
         switch (choice)
         {
@@ -64,7 +69,9 @@ int main(){
             break;
         case 9:
             zad9();
-            break;      
+            break; 
+        case 100: 
+            break;     
         default:
             cout << "Nie ma takiej opcji.\n";
             break;
@@ -82,7 +89,6 @@ void showmenu(){
 }
 
 void zad1() {
-    //getchar();
     char ch;
     char znak = '@';
     cin.get(ch);
@@ -106,7 +112,24 @@ void zad2() {
 }
 
 void zad3() {
-    getchar();
+    showmenu2();
+    char wybor;
+    cin >> wybor;
+    while(wybor != 'q')
+    {
+        switch(wybor)
+        {
+            case 'r': roslinozerca(); break;
+            case 'p': pianista(); break;
+            case 'd': drzewo(); break;
+            case 'g': gra(); break;
+            default: cout << "Prosze podac litere r, p, t lub g: "; break;
+            case 'q': break;
+        }
+        showmenu2();
+        cin >> wybor;
+    }
+    cout << "Do zobaczenia!\n";
 }
 
 void zad4() {
@@ -132,4 +155,25 @@ void zad8(){
 
 void zad9(){ 
     getchar();
+}
+
+void showmenu2(){
+    cout << "\nr) roslinozerca    p) pianista\n";
+    cout << "d) drzewo          g) gra\n";
+}
+
+void roslinozerca(){
+    cout << "Nie jestem tylko roslinozerca.\n";
+}
+
+void pianista(){
+    cout << "Pianista to swietny film.\n";
+}
+
+void drzewo(){
+    cout << "Klon jest drzewem.\n";
+}
+
+void gra(){
+    cout << "Jaka chcesz zagrac gre?\n";
 }
