@@ -2,7 +2,7 @@
 
 /*
 
-1 - NOT DONE
+1 - DONE
 2 - NOT DONE
 3 - NOT DONE
 4 - NOT DONE
@@ -15,6 +15,7 @@
 */
 
 #include <iostream>
+#include <cctype>
 using namespace std;
 void zad1();
 void zad2();
@@ -81,8 +82,22 @@ void showmenu(){
 }
 
 void zad1() {
-    getchar();
-    
+    //getchar();
+    char ch;
+    char znak = '@';
+    cin.get(ch);
+    while(ch != znak)
+    {
+        if(islower(ch)){
+            cout << char(toupper(ch));
+        }
+            
+        if(isupper(ch)) {
+            cout << char(tolower(ch));
+        }
+        cin.get(ch);
+    }
+    cout << "I co zadowolony z wynikow?\n";
 }
 
 void zad2() {
