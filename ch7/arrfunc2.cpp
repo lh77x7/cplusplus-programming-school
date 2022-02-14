@@ -11,9 +11,9 @@ int main(){
     int sum = sum_arr(cookies, ArSize);
     std::cout << "Zjedzono ciasteczek: " << sum << std::endl;
     sum = sum_arr(cookies, 3);  // klamstwo
-    std:: cout << "Pierwsze trzy osoby zjadly " << sum << " ciasteczek.\n";
+    std::cout << "Pierwsze trzy osoby zjadly " << sum << " ciasteczek.\n";
     sum = sum_arr(cookies + 4, 4);  // kolejne klamstwo
-    std:: cout << "Ostatnich czworo zjadlo " << sum << " ciastek.\n";
+    std::cout << "Ostatnich czworo zjadlo " << sum << " ciastek.\n";
     return 0;
 }
 
