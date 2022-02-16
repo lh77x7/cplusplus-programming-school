@@ -2,7 +2,7 @@
 
 /*
 
-1 - NOT DONE
+1 - DONE
 2 - NOT DONE
 3 - NOT DONE
 4 - NOT DONE
@@ -28,6 +28,7 @@ void zad8();
 void zad9();
 void zad10();
 void showmenu();
+double funHarmoniczna(double, double);
 
 int main(){
 
@@ -90,7 +91,18 @@ void showmenu(){
 }
 
 void zad1() {
-    
+
+    double liczba1, liczba2, wynik;
+    cout << "Podaj liczbe 1: "; cin >> liczba1;
+    cout << "Podaj liczba 2: "; cin >> liczba2;
+    while(liczba1 != 0 && liczba2 != 0) {
+        wynik = funHarmoniczna(liczba1, liczba2);
+        cout << "Srednia harmoniczna wynosi: " << wynik << endl;
+        cout << "Podaj liczba1 i liczba2 <0 konczy>" << endl;
+        cout << "Liczba 1: "; cin >> liczba1;
+        cout << "Liczba 2: "; cin >> liczba2;
+    }
+    cout << "Koniec.\n";
 }
 
 void zad2() {
@@ -126,4 +138,12 @@ void zad8(){
 
 void zad9(){ 
     
+}
+
+void zad10(){
+    
+}
+
+double funHarmoniczna(double x, double y){
+    return (2.0 * x * y )/(x + y);
 }
