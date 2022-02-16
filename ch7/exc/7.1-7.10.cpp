@@ -157,7 +157,7 @@ void zad4() {
     while((cin >> najwiekszaPuli >> megaliczba >> skreslenia) && skreslenia <= najwiekszaPuli)
     {
         cout << "Szanse wygranej do jeden do ";
-        long long int wynik = (long long)(probability1(najwiekszaPuli, skreslenia)) * (long long)(probability2(megaliczba));
+        long long int wynik = (long long)(probability1(najwiekszaPuli, skreslenia) * probability2(megaliczba));
         cout << wynik << endl;
         cout << "Chce sprawdzic wyniki do osobnych funkcji:\n";
         cout << "Prawdo. najwiekszej z puli do skreslen: " << probability1(najwiekszaPuli, skreslenia) << endl;
@@ -268,7 +268,7 @@ long double probability1(unsigned numery, unsigned wybor){
 // 1 numer z x wyborów
 long double probability2(unsigned numery){
 
-    long double wynik = 1.0;
+    long double wynik;
     long double n = 1.0;
     unsigned p = 0.0;
     while(p++ < numery){
