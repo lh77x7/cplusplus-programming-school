@@ -4,7 +4,7 @@
 
 1 - DONE
 2 - DONE
-3 - NOT DONE
+3 - DONE
 4 - NOT DONE
 5 - NOT DONE
 6 - NOT DONE
@@ -16,6 +16,23 @@
 */
 
 #include <iostream>
+#include <cstring>
+struct pudlo
+{
+    char producent[40];
+    float wysokosc;
+    float szerokosc;
+    float dlugosc;
+    float objetosc;
+} dane = 
+{
+    "Liderando.de",
+    3,
+    10,
+    10,
+    300
+};
+
 using namespace std;
 const int MAX = 10;
 void zad1();
@@ -33,6 +50,9 @@ double funHarmoniczna(double, double);
 int wprowadzWyniki(double [], double);
 void wyswietlWyniki(double [], double);
 void sredniaWyniki(double [], double);
+void wartosciStruktury(struct pudlo);
+void ustawObjetosc(struct pudlo *);
+
 
 int main(){
 
@@ -118,8 +138,9 @@ void zad2() {
 }
 
 void zad3() {
-    
-    
+    pudlo adresStruktry; 
+    wartosciStruktury(dane);
+    ustawObjetosc(&adresStruktry);
 }
 
 void zad4() {
@@ -196,4 +217,17 @@ void sredniaWyniki(double tablica[], double MAX){
         suma += tablica[i];       
     }
     cout << "Srednia wynosi " << suma / MAX << endl;
+}
+
+void wartosciStruktury(struct pudlo dane){
+    cout << "Wyswietlanie danych:\n";
+    cout << "Producent: " << dane.producent << endl;
+    cout << "Dlugosc: " << dane.dlugosc << endl;
+    cout << "Szerokosc: " << dane.szerokosc << endl;
+    cout << "Wysokosc: " << dane.wysokosc << endl;
+    cout << "Objetosc: " << dane.objetosc << endl;
+}
+
+void ustawObjetosc(struct pudlo *pxyz){
+    pxyz->objetosc = pxyz->dlugosc * pxyz->szerokosc * pxyz->wysokosc;
 }
