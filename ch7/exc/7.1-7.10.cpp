@@ -6,7 +6,7 @@
 2 - DONE
 3 - DONE
 4 - DONE
-5 - NOT DONE
+5 - DONE
 6 - NOT DONE
 7 - NOT DONE
 8 - NOT DONE
@@ -16,7 +16,6 @@
 */
 
 #include <iostream>
-#include <cstring>
 struct pudlo
 {
     char producent[40];
@@ -54,6 +53,7 @@ void wartosciStruktury(struct pudlo);
 void ustawObjetosc(struct pudlo *);
 long double probability1(unsigned, unsigned);
 long double probability2(unsigned);
+long long silnia(int);
 
 int main(){
 
@@ -170,7 +170,16 @@ void zad4() {
 }
 
 void zad5() {
-    
+    int liczba;
+    cout << "Podaj liczbe: ";
+    cin >> liczba;
+    while(liczba > 0)
+    {
+        cout << "n! = " << silnia(liczba) << endl;
+        cout << "Nastepna liczba: ";
+        cin >> liczba;
+    }
+    cout << "Koniec.\n";
 }
 
 void zad6() {
@@ -275,4 +284,11 @@ long double probability2(unsigned numery){
         wynik = wynik * n / p;
     }    
     return wynik; 
+}
+
+long long silnia(int numer){
+    if(numer < 2){
+        return 1;
+    }
+    return numer * silnia(numer - 1);
 }
