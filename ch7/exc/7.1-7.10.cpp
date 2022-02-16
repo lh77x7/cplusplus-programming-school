@@ -5,7 +5,7 @@
 1 - DONE
 2 - DONE
 3 - DONE
-4 - NOT DONE
+4 - DONE
 5 - NOT DONE
 6 - NOT DONE
 7 - NOT DONE
@@ -52,7 +52,8 @@ void wyswietlWyniki(double [], double);
 void sredniaWyniki(double [], double);
 void wartosciStruktury(struct pudlo);
 void ustawObjetosc(struct pudlo *);
-
+long double probability1(unsigned, unsigned);
+long double probability2(unsigned);
 
 int main(){
 
@@ -143,9 +144,29 @@ void zad3() {
     ustawObjetosc(&adresStruktry);
 }
 
+/*
+
+mnożenie  (5 z 47) * (1 z 27) wykracza poza zakres long long!
+
+*/
 void zad4() {
 
-
+    double najwiekszaPuli, megaliczba, skreslenia;
+    cout << "Podaj najwieksza liczbe, jak mozna wybrac, megaliczbe oraz\n"
+        "liczbe skreslen:\n";
+    while((cin >> najwiekszaPuli >> megaliczba >> skreslenia) && skreslenia <= najwiekszaPuli)
+    {
+        cout << "Szanse wygranej do jeden do ";
+        long long int wynik = (long long)(probability1(najwiekszaPuli, skreslenia)) * (long long)(probability2(megaliczba));
+        cout << wynik << endl;
+        cout << "Chce sprawdzic wyniki do osobnych funkcji:\n";
+        cout << "Prawdo. najwiekszej z puli do skreslen: " << probability1(najwiekszaPuli, skreslenia) << endl;
+        cout << "Prawdo. megaliczby: " << probability2(megaliczba) << endl;
+        long long sprawdzenie = (long long)(probability1(najwiekszaPuli, skreslenia) * probability2(megaliczba));
+        cout << "Razem: " << sprawdzenie << endl;
+        cout << "Podaj nastepne 3 liczby (q, aby zakonczyc): ";
+    }
+    cout << "Koniec!\n";
 }
 
 void zad5() {
@@ -230,4 +251,28 @@ void wartosciStruktury(struct pudlo dane){
 
 void ustawObjetosc(struct pudlo *pxyz){
     pxyz->objetosc = pxyz->dlugosc * pxyz->szerokosc * pxyz->wysokosc;
+}
+
+// x numberów z y wyborów
+long double probability1(unsigned numery, unsigned wybor){
+    
+    long double wynik = 1.0;
+    long double n;
+    unsigned p;
+
+    for(n = numery, p = wybor; p > 0; n--, p--)
+        wynik = wynik * n / p;
+    return wynik;
+}
+
+// 1 numer z x wyborów
+long double probability2(unsigned numery){
+
+    long double wynik = 1.0;
+    long double n = 1.0;
+    unsigned p = 0.0;
+    while(p++ < numery){
+        wynik = wynik * n / p;
+    }    
+    return wynik; 
 }
