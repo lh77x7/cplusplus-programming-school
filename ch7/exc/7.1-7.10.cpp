@@ -3,7 +3,7 @@
 /*
 
 1 - DONE
-2 - NOT DONE
+2 - DONE
 3 - NOT DONE
 4 - NOT DONE
 5 - NOT DONE
@@ -17,6 +17,7 @@
 
 #include <iostream>
 using namespace std;
+const int MAX = 10;
 void zad1();
 void zad2();
 void zad3();
@@ -29,6 +30,9 @@ void zad9();
 void zad10();
 void showmenu();
 double funHarmoniczna(double, double);
+int wprowadzWyniki(double [], double);
+void wyswietlWyniki(double [], double);
+void sredniaWyniki(double [], double);
 
 int main(){
 
@@ -107,7 +111,10 @@ void zad1() {
 
 void zad2() {
     
-    
+    double tablicaWynikow[MAX];
+    int rozmiar = wprowadzWyniki(tablicaWynikow, MAX);
+    wyswietlWyniki(tablicaWynikow, rozmiar);
+    sredniaWyniki(tablicaWynikow, rozmiar);
 }
 
 void zad3() {
@@ -146,4 +153,47 @@ void zad10(){
 
 double funHarmoniczna(double x, double y){
     return (2.0 * x * y )/(x + y);
+}
+
+int wprowadzWyniki(double tablica[], double MAX){
+
+    double temp;
+    int i;
+
+    for(i = 0; i < MAX; i++)
+    {
+        cout << "Podaj wynik numer "<< i + 1 << ": ";
+        cin >> temp;
+        if(!cin)    // bledne dane
+        {
+            cin.clear();
+            while(cin.get() != '\n')
+                continue;
+            cout << "Bledne dane, wprowadzanie danych przerwane.\n";
+            break;
+        } else if (temp < 0)    // nakaz zakonczenia
+            break;
+        tablica[i] = temp;
+    }
+    return i; 
+}
+
+void wyswietlWyniki(double tablica[], double MAX){
+    
+    for(int i = 0; i < MAX; i++)
+    {
+        cout << tablica[i] << " ";
+    }
+    cout << endl;
+}
+
+void sredniaWyniki(double tablica[], double MAX){
+
+    double suma = 0;
+    
+    for(int i = 0; i < MAX; i++)
+    {
+        suma += tablica[i];       
+    }
+    cout << "Srednia wynosi " << suma / MAX << endl;
 }
