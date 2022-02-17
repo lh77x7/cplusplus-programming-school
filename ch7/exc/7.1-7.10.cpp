@@ -7,7 +7,7 @@
 3 - DONE
 4 - DONE
 5 - DONE
-6 - NOT DONE
+6 - DONE
 7 - NOT DONE
 8 - NOT DONE
 9 - NOT DONE
@@ -49,6 +49,9 @@ double funHarmoniczna(double, double);
 int wprowadzWyniki(double [], double);
 void wyswietlWyniki(double [], double);
 void sredniaWyniki(double [], double);
+int fill_array(double [], double);
+void show_array(double [], double);
+void reverse_array(double [], double);
 void wartosciStruktury(struct pudlo);
 void ustawObjetosc(struct pudlo *);
 long double probability1(unsigned, unsigned);
@@ -118,6 +121,7 @@ void showmenu(){
 void zad1() {
 
     double liczba1, liczba2, wynik;
+    
     cout << "Podaj liczbe 1: "; cin >> liczba1;
     cout << "Podaj liczba 2: "; cin >> liczba2;
     while(liczba1 != 0 && liczba2 != 0) {
@@ -134,12 +138,15 @@ void zad2() {
     
     double tablicaWynikow[MAX];
     int rozmiar = wprowadzWyniki(tablicaWynikow, MAX);
+    
     wyswietlWyniki(tablicaWynikow, rozmiar);
     sredniaWyniki(tablicaWynikow, rozmiar);
 }
 
 void zad3() {
+    
     pudlo adresStruktry; 
+    
     wartosciStruktury(dane);
     ustawObjetosc(&adresStruktry);
 }
@@ -152,6 +159,7 @@ mnożenie  (5 z 47) * (1 z 27) wykracza poza zakres long long!
 void zad4() {
 
     double najwiekszaPuli, megaliczba, skreslenia;
+    
     cout << "Podaj najwieksza liczbe, jak mozna wybrac, megaliczbe oraz\n"
         "liczbe skreslen:\n";
     while((cin >> najwiekszaPuli >> megaliczba >> skreslenia) && skreslenia <= najwiekszaPuli)
@@ -170,7 +178,9 @@ void zad4() {
 }
 
 void zad5() {
+
     int liczba;
+    
     cout << "Podaj liczbe: ";
     cin >> liczba;
     while(liczba > 0)
@@ -184,6 +194,12 @@ void zad5() {
 
 void zad6() {
     
+    double tablicaWynikow[MAX];
+
+    int rozmiar = fill_array(tablicaWynikow, MAX);
+    show_array(tablicaWynikow, rozmiar);
+    reverse_array(tablicaWynikow, rozmiar);
+
 }
 
 void zad7() {
@@ -203,7 +219,9 @@ void zad10(){
 }
 
 double funHarmoniczna(double x, double y){
+
     return (2.0 * x * y )/(x + y);
+
 }
 
 int wprowadzWyniki(double tablica[], double MAX){
@@ -259,7 +277,9 @@ void wartosciStruktury(struct pudlo dane){
 }
 
 void ustawObjetosc(struct pudlo *pxyz){
+    
     pxyz->objetosc = pxyz->dlugosc * pxyz->szerokosc * pxyz->wysokosc;
+
 }
 
 // x numberów z y wyborów
@@ -271,6 +291,7 @@ long double probability1(unsigned numery, unsigned wybor){
 
     for(n = numery, p = wybor; p > 0; n--, p--)
         wynik = wynik * n / p;
+    
     return wynik;
 }
 
@@ -283,12 +304,59 @@ long double probability2(unsigned numery){
     while(p++ < numery){
         wynik = wynik * n / p;
     }    
+    
     return wynik; 
 }
 
 long long silnia(int numer){
+    
     if(numer < 2){
         return 1;
     }
+    
     return numer * silnia(numer - 1);
+}
+
+int fill_array(double tablica[], double MAX){
+    
+    double temp;
+    int i;
+
+    for(i = 0; i < MAX; i++)
+    {
+        cout << "Podaj wynik numer "<< i + 1 << ": ";
+        cin >> temp;
+        if(!cin)    // bledne dane
+        {
+            cin.clear();
+            while(cin.get() != '\n')
+                continue;
+            cout << "Bledne dane, wprowadzanie danych przerwane.\n";
+            break;
+        } else if (temp < 0)    // nakaz zakonczenia
+            break;
+        tablica[i] = temp;
+    }
+    
+    return i;
+
+}
+
+void show_array(double tablica[], double MAX){
+    
+    for(int i = 0; i < MAX; i++)
+    {
+        cout << tablica[i] << " ";
+    }
+    cout << endl;
+}
+
+void reverse_array(double tablica[], double MAX){
+
+    for(int i = MAX; i > 0; i--)
+    {
+        cout << tablica[i-1] << " ";
+    }
+    cout << endl;
+
 }
