@@ -57,6 +57,9 @@ void ustawObjetosc(struct pudlo *);
 long double probability1(unsigned, unsigned);
 long double probability2(unsigned);
 long long silnia(int);
+double *fill_array2(double *, double *);
+void show_array2(double *, double *);
+void revalue2(double, double *, double *);
 
 int main(){
 
@@ -204,6 +207,27 @@ void zad6() {
 
 void zad7() {
     
+    double tablica[MAX];
+
+    double *ptr = fill_array2(tablica, tablica + MAX);
+    show_array2(tablica, ptr);
+    if(tablica)
+    {
+        cout << "Podaj czynnik zmiany wartosci: ";
+        double factor;
+        while(!(cin >> factor)) // nieliczbowa wartosc na wejsciu
+        {
+            cin.clear();
+            while(cin.get() != '\n')
+                continue;
+            cout << "Niepoprawna wartosc; podaj liczbe: ";
+        }
+        revalue2(factor, tablica, ptr);
+        show_array2(tablica, ptr);
+    } 
+    cout << "Gotowe.\n";
+    cin.get();
+    cin.get();
 }
 
 void zad8(){
@@ -359,4 +383,34 @@ void reverse_array(double tablica[], double MAX){
     }
     cout << endl;
 
+}
+
+double *fill_array2(double *poczatek, double *koniec){
+    
+    double *adres;
+
+    for(adres = poczatek; adres != koniec; adres++)
+    {
+        adres++;
+    }
+
+    return adres;
+
+}
+
+void show_array2(double *poczatek, double *wsk){
+    
+    const double *pt;
+    for(pt = poczatek; pt != wsk; pt++)
+        cout << pt << " " << endl;
+}
+
+void revalue2(double r, double *poczatek, double *wsk){
+    
+    double *pt;
+    for(pt = poczatek; pt != wsk; pt++)
+    {
+
+    }
+        //pt = pt * r;
 }
