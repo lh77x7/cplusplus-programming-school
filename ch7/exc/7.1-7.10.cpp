@@ -9,13 +9,15 @@
 5 - DONE
 6 - DONE
 7 - NOT DONE
-8 - NOT DONE
+8 - DONE
 9 - NOT DONE
 10 - NOT DONE
 
 */
 
 #include <iostream>
+using namespace std;
+
 struct pudlo
 {
     char producent[40];
@@ -32,8 +34,15 @@ struct pudlo
     300
 };
 
-using namespace std;
+struct wydatki{
+    double wydatkiMiesieczne;
+};
+
+const char *Snames[4] = 
+{"Wiosna", "Lato", "Jesien", "Zima"};
 const int MAX = 10;
+const int Seasons = 4;
+
 void zad1();
 void zad2();
 void zad3();
@@ -60,6 +69,10 @@ long long silnia(int);
 double *fill_array2(double *, double *);
 void show_array2(double *, double *);
 void revalue2(double, double *, double *);
+void fill1(double []);
+void show1(double []);
+void fill2(wydatki daneMies[]);
+void show2(wydatki daneMies[]);
 
 int main(){
 
@@ -232,6 +245,21 @@ void zad7() {
 
 void zad8(){
     
+    double wydatki1[4];
+    struct wydatki wydatki2[4];
+
+    // a)
+    fill1(wydatki1);
+    show1(wydatki1);
+
+    cin.get();
+    cin.get();
+
+    cout << "Pora na wprowadzenie danych struktury: " << endl;
+    // b)
+    fill2(wydatki2);
+    show2(wydatki2);
+
 }
 
 void zad9(){ 
@@ -401,6 +429,7 @@ double *fill_array2(double *poczatek, double *koniec){
 void show_array2(double *poczatek, double *wsk){
     
     const double *pt;
+    
     for(pt = poczatek; pt != wsk; pt++)
         cout << pt << " " << endl;
 }
@@ -408,9 +437,53 @@ void show_array2(double *poczatek, double *wsk){
 void revalue2(double r, double *poczatek, double *wsk){
     
     double *pt;
+    
     for(pt = poczatek; pt != wsk; pt++)
     {
 
     }
         //pt = pt * r;
+}
+
+void fill1(double tablica[]){
+    
+    for(int i = 0; i < Seasons; i++){
+        cout << "Podaj wydatki za okres >> " << Snames[i] << "<< : ";
+        cin >> tablica[i];
+    }
+}
+
+void show1(double tablica[]){
+
+    double total = 0.0;
+    
+    cout << "\nWYDATKI\n";
+    for(int i = 0; i < Seasons; i++)
+    {
+        cout << Snames[i] << ": " << tablica[i] << " zl" << endl;
+        total += tablica[i];
+    }
+    cout << "Laczne wydatki to: " << total << " zl" << endl;
+}
+
+void fill2(struct wydatki daneMies[]){
+
+    for(int i = 0; i < Seasons; i++)
+    {
+        cout << Snames[i] << ": ";
+        cin >> daneMies[i].wydatkiMiesieczne;    
+    }
+}
+
+void show2(struct wydatki daneMies[]){
+
+    double total = 0.0;
+
+    cout << "\nWYDATKI\n";
+    for(int i = 0; i < Seasons; i++)
+    {
+        cout << Snames[i] << ": " << daneMies[i].wydatkiMiesieczne << endl;
+        total += daneMies[i].wydatkiMiesieczne;
+    }
+    cout << "Laczne wydatki miesieczne to: " << total << endl;
 }
