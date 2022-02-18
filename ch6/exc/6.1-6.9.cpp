@@ -6,7 +6,7 @@
 2 - DONE
 3 - DONE
 4 - DONE
-5 - NOT DONE
+5 - DONE
 6 - NOT DONE
 7 - NOT DONE
 8 - NOT DONE
@@ -19,6 +19,11 @@
 #include <cctype>
 using namespace std;
 const int strsize = 30;
+const int prog1 = 5000;
+const int prog2 = 10000;
+const int prog3 = 20000;
+const int prog4 = 35000;
+
 struct zpdw {
         char imie[strsize];         // prawdziwe imie
         char stanowisko[strsize];   // stanowisko sluzbowe
@@ -29,6 +34,11 @@ struct zpdw {
         {"leszek", "wszechstronny programista", "gigant", 1},
         {"pawel", "ekspert bezpieczenstwa", "hacker", 2},
         {"jan", "frontend developer", "magiczny kolo", 3}
+};
+
+struct wplacajacy {
+    string nazwisko;
+    double kwota;
 };
 
 void zad1();
@@ -221,7 +231,39 @@ void zad4() {
 }
 
 void zad5() {
-     
+
+    float zarobek, podatek;
+    cout << "Podaj zarobek: ";
+    cin >> zarobek;
+    // < 5000
+    if(zarobek < prog1)
+    {
+        cout << "Podatek wynosi 0!" << endl;
+    }
+    // > 5000 && < 10000
+    if(zarobek > prog1 && zarobek < prog2)
+    {
+        podatek = zarobek * 0.1;
+        cout << "Podatek wynosi " << podatek << endl;
+    }
+    // > 10000 && < 20000
+    if(zarobek > prog2 && zarobek < prog3)
+    {
+        podatek = prog2 * 0.1 + (zarobek - prog2) * 0.15;
+        cout << "Podatek wynosi " << podatek << endl;
+    }
+    // > 20000 && < 35000
+    if(zarobek > prog3 && zarobek < prog4)
+    {
+        podatek = prog2 * 0.1 + prog3 * 0.15 + (zarobek - prog3) * 0.15;
+        cout << "Podatek wynosi " << podatek << endl;
+    }
+    // > 35000
+    if(zarobek > prog4)
+    {
+        podatek = prog2 * 0.1 + prog3 * 0.15 + (zarobek - prog3) * 0.2;
+        cout << "Podatek wynosi " << podatek << endl;
+    }
 }
 
 void zad6() {
