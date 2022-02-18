@@ -10,13 +10,17 @@
 6 - DONE
 7 - NOT DONE
 8 - DONE
-9 - NOT DONE
+9 - DONE
 10 - NOT DONE
 
 */
 
 #include <iostream>
 using namespace std;
+
+const int MAX = 10;
+const int Seasons = 4;
+const int SLEN = 30;
 
 struct pudlo
 {
@@ -38,10 +42,14 @@ struct wydatki{
     double wydatkiMiesieczne;
 };
 
+struct student {
+    char fullname[SLEN];
+    char hobby[SLEN];
+    int ooplevel;
+};
+
 const char *Snames[4] = 
 {"Wiosna", "Lato", "Jesien", "Zima"};
-const int MAX = 10;
-const int Seasons = 4;
 
 void zad1();
 void zad2();
@@ -73,6 +81,10 @@ void fill1(double []);
 void show1(double []);
 void fill2(wydatki daneMies[]);
 void show2(wydatki daneMies[]);
+int getinfo(student pa[], int n);
+void display1(student st);
+void display2(const student *ps);
+void display3(const student pa[], int n);
 
 int main(){
 
@@ -264,6 +276,22 @@ void zad8(){
 
 void zad9(){ 
     
+    int class_size;
+
+    cout << "Podaj wielkosc grupy: ";
+    cin >> class_size;
+    while(cin.get() != '\n')
+        continue;
+    student * ptr_stu = new student[class_size];
+    int entered = getinfo(ptr_stu, class_size);
+    for(int i = 0; i < entered; i++)
+    {
+        display1(ptr_stu[i]);
+        display2(&ptr_stu[i]);
+    }
+    display3(ptr_stu, entered);
+    delete [] ptr_stu;
+    cout << "Gotowe.\n";
 }
 
 void zad10(){
@@ -296,6 +324,7 @@ int wprowadzWyniki(double tablica[], double MAX){
             break;
         tablica[i] = temp;
     }
+    
     return i; 
 }
 
@@ -486,4 +515,62 @@ void show2(struct wydatki daneMies[]){
         total += daneMies[i].wydatkiMiesieczne;
     }
     cout << "Laczne wydatki miesieczne to: " << total << endl;
+}
+
+
+int getinfo(student pa[], int n){
+
+    int i = 0;
+
+    for(i = 0; i < n; i++)
+    {
+        
+        cout << "student " << i + 1 << endl;
+        cout << "imie: ";
+        cin.getline(pa[i].fullname, SLEN);
+        if(pa[i].fullname[0] == ' ')
+            return i;
+        cout << "hobby: ";
+        cin.getline(pa[i].hobby, SLEN);
+        cout << "ocena: ";
+        cin >> pa[i].ooplevel;
+        cin.get();
+    }
+    cout << "Koniec wprowadzania danych!" << endl;
+    
+    return n;
+}
+
+void display1(student st){
+
+    cout << "-----------" << endl;
+    cout << st.fullname << endl;
+    cout << st.hobby << endl;
+    cout << st.ooplevel << endl;
+    cout << "-----------" << endl;
+}
+
+
+
+void display2(const student *ps){
+    cout << "2 sposob wyswietlania: " << endl; 
+    cout << "imie i nazwisko: " << ps->fullname << endl;
+    cout << "hobby: " << ps->hobby << endl;
+    cout << "poziom oo: " << ps->ooplevel << endl;
+}
+
+void display3(const student pa[], int n){
+
+    int i = 0;
+    cout << "3 sposob wyswietlania" << endl;
+    cout << "---------------------------" << endl;
+    for(i = 0; i < n; i++)
+    {
+        cout << "Student " << i + 1 << ": " << endl;
+        cout << "Imie i nazwisko: " << pa[i].fullname << endl;
+        cout << "Hobby: " << pa[i].hobby << endl;
+        cout << "Ocena poziomu OO: " << pa[i].ooplevel << endl;
+    }
+    cout << "KONIEC! Wyswietalanie danych zakonczone." << endl;
+    cout << "---------------------------" << endl;
 }
