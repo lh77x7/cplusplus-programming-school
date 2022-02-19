@@ -8,12 +8,13 @@
 4 - DONE
 5 - DONE
 6 - DONE
-7 - NOT DONE
+7 - DONE
 8 - DONE
 9 - DONE
 
 */
 
+// biblioteki
 #include <iostream>
 #include <algorithm>
 #include <fstream>
@@ -22,12 +23,14 @@
 #include <string>
 #include <new>
 using namespace std;
+// definicje stalych
 const int strsize = 30;
 const int prog1 = 5000;
 const int prog2 = 10000;
 const int prog3 = 20000;
 const int prog4 = 35000;
 
+// struktury
 struct zpdw {
         char imie[strsize];         // prawdziwe imie
         char stanowisko[strsize];   // stanowisko sluzbowe
@@ -45,6 +48,7 @@ struct wplacajacy {
     double kwota;
 };
 
+// deklaracje funkcji
 void zad1();
 void zad2();
 void zad3();
@@ -151,12 +155,15 @@ void zad2() {
     
     const int ROZMIAR = 10;
     double datki[ROZMIAR];
-    
+    double suma = 0.0;
+    double srednia;
+    int i = 0;
+
     cout << "Podaj wysokosci datkow." << endl;
     cout << "Mozesz podac maksymalnie " << ROZMIAR << " datkow" << endl;
     cout << "<q konczy lub dana nieliczowa>" << endl;
     cout << "datek 1: ";
-    int i = 0;
+    
     // wczytuj dane
     while(i < ROZMIAR && cin >> datki[i])
     {
@@ -167,9 +174,8 @@ void zad2() {
         if(++i < ROZMIAR)
             cout << "datek " << i + 1 << ": ";
     }
+
     // wylicz srednia
-    double suma = 0.0;
-    double srednia;
     for(int j = 0; j < i; j++){
         suma += datki[j];
         srednia = suma / j;
@@ -274,15 +280,14 @@ void zad5() {
 void zad6() {
     
     int ilosc;
-    
+    int i, licznik = 0;
+
     cout << "Podaj ilosc wplacajacych osob: ";
     cin >> ilosc;
     // dynamicznie alokuj strukture na n liczb
     wplacajacy *ofiarodawcy = new wplacajacy[ilosc];
 
     // wprowadzenie danych struktury
-    int i, licznik = 0;
-    
     cin.get();
     for(i = 0; i < ilosc; i++)
     {
@@ -317,11 +322,42 @@ void zad6() {
 
     // zwolnij pamiec dla n liczb
     delete [] ofiarodawcy;         
-
 }
 
 void zad7() {
-    
+
+    int samogloski = 0, wspolgloski = 0, inne = 0;
+    string slowa;
+
+    cout << "Wczytuj slowa (q konczy): ";
+    while(cin >> slowa && slowa != "q") // jesli true 
+    {
+        if(isalpha(slowa[0]))
+        {
+            switch(slowa[0])
+            {
+                case 'A':
+                case 'a':
+                case 'E':
+                case 'e':
+                case 'I':
+                case 'i':
+                case 'U':
+                case 'u':
+                case 'Y':
+                case 'y':
+                case 'O':
+                case 'o':
+                samogloski++;
+                break;
+                default: wspolgloski++;
+            }
+        } else
+            inne++;
+    }
+    cout << samogloski << " slowa zaczynajace sie od samoglosek," << endl;
+    cout << wspolgloski << " slowa zaczynajace sie od wspolglosek," << endl;
+    cout << inne << " slowa zaczynajace sie od innych znakow." << endl;
 }
 
 void zad8(){
@@ -345,7 +381,6 @@ void zad8(){
     }
     
     // wczytywanie znaków przez obiekt
-
     wPliku >> ch;   // pobierz pierwszy znak
     while(wPliku.good()) // póki dane i nie EOF
     {
@@ -422,8 +457,6 @@ void zad9(){
     plikTekstowy.close();
     // zwolnij pamiec dla n liczb
     delete [] ofiarodawcy;
-
-
 }
 
 void showmenu2(){
