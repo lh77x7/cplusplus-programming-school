@@ -10,7 +10,7 @@
 6 - DONE
 7 - NOT DONE
 8 - DONE
-9 - NOT DONE
+9 - DONE
 
 */
 
@@ -339,7 +339,7 @@ void zad8(){
     // próba otwarcia pliku
     if(!wPliku.is_open())   // nieudane próba otwarcia pliku
     {
-        cout << "Otwarcie pliku = " << nazwaPliku << " nie powidla sie.\n";
+        cout << "Otwarcie pliku = " << nazwaPliku << " nie powiodla sie.\n";
         cout << "Program zostanie zakonczony.\n";
         exit(EXIT_FAILURE);
     }
@@ -371,7 +371,59 @@ void zad8(){
 }
 
 void zad9(){ 
-    
+
+    int i, ilosc, licznik = 0;
+    ifstream plikTekstowy;
+    plikTekstowy.open("dane.txt");
+
+    cout << "Podaj ilosc wplacajacych osob: ";
+    (plikTekstowy >> ilosc).get();
+    // dynamicznie alokuj strukture na n liczb
+    wplacajacy *ofiarodawcy = new wplacajacy[ilosc];
+
+    if(!plikTekstowy.is_open())   // nieudane próba otwarcia pliku
+    {
+        cout << "Otwarcie pliku \"dane.txt\" nie powiodlo sie.\n";
+        cout << "Program zostanie zakonczony.\n";
+        exit(EXIT_FAILURE);
+    }
+
+    // wczytywanie danych z pliku
+    cin.get();
+    for(i = 0; i < ilosc; i++)
+    {
+        getline(plikTekstowy, ofiarodawcy[i].nazwisko);
+        (plikTekstowy >> ofiarodawcy[i].kwota).get();
+    }
+
+    cout << "\nNasi Wspaniali Sponsorzy:\n";
+    for(i = 0; i < ilosc; i++)
+    {
+        if(ofiarodawcy[i].kwota >= 10000)
+        {
+            cout << ofiarodawcy[i].nazwisko << "\t" << ofiarodawcy[i].kwota << endl;
+            licznik++;
+        }
+    }
+
+    if(licznik == 0)
+        cout << " brak\n";
+    cout << "\nNasi Sponsorzy:\n";
+    if(licznik == ilosc)
+        cout << " brak\n";
+    else {
+        for(int i = 0; i < ilosc; i++)
+        {
+            if(ofiarodawcy[i].kwota < 10000)
+                cout << ofiarodawcy[i].nazwisko << "\t" << ofiarodawcy[i].kwota << endl;
+        }
+    }
+
+    plikTekstowy.close();
+    // zwolnij pamiec dla n liczb
+    delete [] ofiarodawcy;
+
+
 }
 
 void showmenu2(){
