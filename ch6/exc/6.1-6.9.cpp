@@ -9,13 +9,15 @@
 5 - DONE
 6 - DONE
 7 - NOT DONE
-8 - NOT DONE
+8 - DONE
 9 - NOT DONE
 
 */
 
 #include <iostream>
 #include <algorithm>
+#include <fstream>
+#include <cstdlib>
 #include <cctype>
 #include <string>
 #include <new>
@@ -324,6 +326,48 @@ void zad7() {
 
 void zad8(){
     
+    cin.get();
+    char nazwaPliku[strsize];
+    ifstream wPliku;    // obiekt obsługujący odczyt z pliku
+    char ch;    // zmienna na znaki char
+    int licznik = 0; // liczba elementów do odczytu
+
+    cout << "Podaj nazwe pliku z danymi: ";
+    cin.getline(nazwaPliku, strsize);
+    wPliku.open(nazwaPliku);    // obiekt połączony z plikiem
+    
+    // próba otwarcia pliku
+    if(!wPliku.is_open())   // nieudane próba otwarcia pliku
+    {
+        cout << "Otwarcie pliku = " << nazwaPliku << " nie powidla sie.\n";
+        cout << "Program zostanie zakonczony.\n";
+        exit(EXIT_FAILURE);
+    }
+    
+    // wczytywanie znaków przez obiekt
+
+    wPliku >> ch;   // pobierz pierwszy znak
+    while(wPliku.good()) // póki dane i nie EOF
+    {
+        ++licznik;      // inkrementuj licznik
+        wPliku >> ch;   // pobierz nastepny znak
+    }
+
+    if(wPliku.eof())
+    {
+        cout << "Koniec pliku.\n";
+    }
+    else if(wPliku.fail())
+        cout << "Wczytawanie danych przerwane - blad.\n";
+    else
+        cout << "Wczytywanie danych przerwane, przyczyna nieznana.\n";
+    if(licznik == 0)
+        cout << "Nie przetworzono zadnych danych.\n";
+    else 
+    {
+        cout << "Wczytano znakow: " << licznik << endl;
+    }
+    wPliku.close(); // nie potrzeba już pliku
 }
 
 void zad9(){ 
