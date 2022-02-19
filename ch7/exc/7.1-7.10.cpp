@@ -11,7 +11,7 @@
 7 - DONE
 8 - DONE
 9 - DONE
-10 - NOT DONE
+10 - DONE
 
 */
 
@@ -20,7 +20,8 @@ using namespace std;
 
 // deklaracje stałych
 const int MAX = 10;
-const int Seasons = 4;
+const int SEASONS = 4;
+const int SIZE = 3;
 const int SLEN = 30;
 
 // definicje struktur
@@ -88,6 +89,10 @@ int getinfo(student pa[], int n);
 void display1(student st);
 void display2(const student *ps);
 void display3(const student pa[], int n);
+double add(double, double);
+double multiply(double, double);
+double subdivide(double, double);
+void calculate(double, double, double (*pf[])(double, double), int);
 
 int main(){
 
@@ -299,6 +304,16 @@ void zad9(){
 
 void zad10(){
 
+    double (*pf[SIZE])(double, double) = {add, subdivide, multiply};
+    double x, y;
+
+    cout << "Podaj dwie wartosci(q konczy):\n";
+    while(cin >> x >> y)
+    {
+        cout << "Wyniki dla (dodawania, dzielenia i mnozenia):\n";
+        calculate(x, y, pf, SIZE);
+        cout << "Podaj nastepne wartosci: ";
+    }
 }
 
 double funHarmoniczna(double x, double y){
@@ -489,7 +504,7 @@ void revalue2(double r, double *poczatek, double *koniec){
 
 void fill1(double tablica[]){
     
-    for(int i = 0; i < Seasons; i++){
+    for(int i = 0; i < SEASONS; i++){
         cout << "Podaj wydatki za okres >> " << Snames[i] << "<< : ";
         cin >> tablica[i];
     }
@@ -500,7 +515,7 @@ void show1(double tablica[]){
     double total = 0.0;
     
     cout << "\nWYDATKI\n";
-    for(int i = 0; i < Seasons; i++)
+    for(int i = 0; i < SEASONS; i++)
     {
         cout << Snames[i] << ": " << tablica[i] << " zl" << endl;
         total += tablica[i];
@@ -512,7 +527,7 @@ void show1(double tablica[]){
 
 void fill2(struct wydatki daneMies[]){
 
-    for(int i = 0; i < Seasons; i++)
+    for(int i = 0; i < SEASONS; i++)
     {
         cout << Snames[i] << ": ";
         cin >> daneMies[i].wydatkiMiesieczne;    
@@ -524,7 +539,7 @@ void show2(struct wydatki daneMies[]){
     double total = 0.0;
 
     cout << "\nWYDATKI\n";
-    for(int i = 0; i < Seasons; i++)
+    for(int i = 0; i < SEASONS; i++)
     {
         cout << Snames[i] << ": " << daneMies[i].wydatkiMiesieczne << endl;
         total += daneMies[i].wydatkiMiesieczne;
@@ -592,4 +607,28 @@ void display3(const student pa[], int n){
     
     cout << "KONIEC! Wyswietalanie danych zakonczone." << endl;
     cout << "---------------------------" << endl;
+}
+
+double add(double x, double y){
+
+    return x + y;
+
+}
+
+double multiply(double x, double y){
+
+    return x * y;
+
+}
+
+double subdivide(double x, double y){
+
+    return x / y;
+
+}
+
+void calculate(double x, double y, double (*pf[])(double, double), int n){
+
+    for(int i = 0; i < n; i++)
+        cout << pf[i](x, y) << endl;
 }
