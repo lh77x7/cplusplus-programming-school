@@ -7,7 +7,7 @@
 3 - DONE
 4 - DONE
 5 - DONE
-6 - NOT DONE
+6 - DONE
 7 - NOT DONE
 8 - NOT DONE
 9 - NOT DONE
@@ -17,6 +17,8 @@
 #include <iostream>
 #include <algorithm>
 #include <cctype>
+#include <string>
+#include <new>
 using namespace std;
 const int strsize = 30;
 const int prog1 = 5000;
@@ -233,6 +235,7 @@ void zad4() {
 void zad5() {
 
     float zarobek, podatek;
+    
     cout << "Podaj zarobek: ";
     cin >> zarobek;
     // < 5000
@@ -268,6 +271,51 @@ void zad5() {
 
 void zad6() {
     
+    int ilosc;
+    
+    cout << "Podaj ilosc wplacajacych osob: ";
+    cin >> ilosc;
+    // dynamicznie alokuj strukture na n liczb
+    wplacajacy *ofiarodawcy = new wplacajacy[ilosc];
+
+    // wprowadzenie danych struktury
+    int i, licznik = 0;
+    
+    cin.get();
+    for(i = 0; i < ilosc; i++)
+    {
+        cout << i + 1 << " Nazywisko: ";
+        getline(cin, ofiarodawcy[i].nazwisko);
+        cout << "Kwota: ";
+        cin >> ofiarodawcy[i].kwota;
+        cin.get();
+    }
+    cout << "\nNasi Wspaniali Sponsorzy:\n";
+    for(i = 0; i < ilosc; i++)
+    {
+        if(ofiarodawcy[i].kwota >= 10000)
+        {
+            cout << ofiarodawcy[i].nazwisko << "\t" << ofiarodawcy[i].kwota << endl;
+            licznik++;
+        }
+    }
+
+    if(licznik == 0)
+        cout << " brak\n";
+    cout << "\nNasi Sponsorzy:\n";
+    if(licznik == ilosc)
+        cout << " brak\n";
+    else {
+        for(int i = 0; i < ilosc; i++)
+        {
+            if(ofiarodawcy[i].kwota < 10000)
+                cout << ofiarodawcy[i].nazwisko << "\t" << ofiarodawcy[i].kwota << endl;
+        }
+    }
+
+    // zwolnij pamiec dla n liczb
+    delete [] ofiarodawcy;         
+
 }
 
 void zad7() {
