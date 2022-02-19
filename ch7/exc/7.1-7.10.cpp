@@ -8,7 +8,7 @@
 4 - DONE
 5 - DONE
 6 - DONE
-7 - NOT DONE
+7 - DONE
 8 - DONE
 9 - DONE
 10 - NOT DONE
@@ -18,10 +18,12 @@
 #include <iostream>
 using namespace std;
 
+// deklaracje stałych
 const int MAX = 10;
 const int Seasons = 4;
 const int SLEN = 30;
 
+// definicje struktur
 struct pudlo
 {
     char producent[40];
@@ -51,6 +53,7 @@ struct student {
 const char *Snames[4] = 
 {"Wiosna", "Lato", "Jesien", "Zima"};
 
+// deklaracje funkcji
 void zad1();
 void zad2();
 void zad3();
@@ -234,9 +237,9 @@ void zad7() {
     
     double tablica[MAX];
 
-    double *ptr = fill_array2(tablica, tablica + MAX);
-    show_array2(tablica, ptr);
-    if(tablica)
+    double *padres = fill_array2(tablica, tablica + MAX);
+    show_array2(tablica, padres);
+    if((padres - tablica) > 0)
     {
         cout << "Podaj czynnik zmiany wartosci: ";
         double factor;
@@ -247,8 +250,8 @@ void zad7() {
                 continue;
             cout << "Niepoprawna wartosc; podaj liczbe: ";
         }
-        revalue2(factor, tablica, ptr);
-        show_array2(tablica, ptr);
+        revalue2(factor, tablica, padres);
+        show_array2(tablica, padres);
     } 
     cout << "Gotowe.\n";
     cin.get();
@@ -295,7 +298,7 @@ void zad9(){
 }
 
 void zad10(){
-    
+
 }
 
 double funHarmoniczna(double x, double y){
@@ -444,34 +447,44 @@ void reverse_array(double tablica[], double MAX){
 
 double *fill_array2(double *poczatek, double *koniec){
     
+    double temp;
     double *adres;
 
     for(adres = poczatek; adres != koniec; adres++)
     {
-        adres++;
+        cout << "Podaj wartosc #" << (adres - poczatek) + 1 << ": ";
+        cin >> temp;
+        if(!cin)    // bledne dane
+        {
+            cin.clear();
+            while(cin.get() != '\n')
+                continue;
+            cout << "wledne dane wejsciowe" << endl;
+            break;
+        }
+        else if (temp < 0)
+            break;
+        *adres = temp;
     }
 
     return adres;
-
 }
 
-void show_array2(double *poczatek, double *wsk){
+void show_array2(double *poczatek, double *koniec){
     
     const double *pt;
     
-    for(pt = poczatek; pt != wsk; pt++)
-        cout << pt << " " << endl;
+    for(pt = poczatek; pt != koniec; pt++)
+        cout << "tablica #" << (pt - poczatek)+1 << ": " << *pt << " ";
+    cout << endl;
 }
 
-void revalue2(double r, double *poczatek, double *wsk){
+void revalue2(double r, double *poczatek, double *koniec){
     
     double *pt;
     
-    for(pt = poczatek; pt != wsk; pt++)
-    {
-
-    }
-        //pt = pt * r;
+    for(pt = poczatek; pt != koniec; pt++)
+        *pt *= r;
 }
 
 void fill1(double tablica[]){
@@ -492,7 +505,9 @@ void show1(double tablica[]){
         cout << Snames[i] << ": " << tablica[i] << " zl" << endl;
         total += tablica[i];
     }
+
     cout << "Laczne wydatki to: " << total << " zl" << endl;
+
 }
 
 void fill2(struct wydatki daneMies[]){
@@ -514,7 +529,9 @@ void show2(struct wydatki daneMies[]){
         cout << Snames[i] << ": " << daneMies[i].wydatkiMiesieczne << endl;
         total += daneMies[i].wydatkiMiesieczne;
     }
+
     cout << "Laczne wydatki miesieczne to: " << total << endl;
+
 }
 
 
@@ -550,18 +567,19 @@ void display1(student st){
     cout << "-----------" << endl;
 }
 
-
-
 void display2(const student *ps){
+    
     cout << "2 sposob wyswietlania: " << endl; 
     cout << "imie i nazwisko: " << ps->fullname << endl;
     cout << "hobby: " << ps->hobby << endl;
     cout << "poziom oo: " << ps->ooplevel << endl;
+
 }
 
 void display3(const student pa[], int n){
 
     int i = 0;
+    
     cout << "3 sposob wyswietlania" << endl;
     cout << "---------------------------" << endl;
     for(i = 0; i < n; i++)
@@ -571,6 +589,7 @@ void display3(const student pa[], int n){
         cout << "Hobby: " << pa[i].hobby << endl;
         cout << "Ocena poziomu OO: " << pa[i].ooplevel << endl;
     }
+    
     cout << "KONIEC! Wyswietalanie danych zakonczone." << endl;
     cout << "---------------------------" << endl;
 }
