@@ -3,7 +3,7 @@
 /*
 
 1 - NOT DONE
-2 - NOT DONE
+2 - DONE
 3 - NOT DONE
 4 - NOT DONE
 5 - NOT DONE
@@ -15,6 +15,13 @@
 #include <iostream>
 using namespace std;
 
+// deklaracja struktur
+struct Batonik{
+    char name[40];
+    double price;
+    int length;
+};
+
 // deklaracje funkcji
 void zad1();
 void zad2();
@@ -23,6 +30,8 @@ void zad4();
 void zad5();
 void zad6();
 void zad7();
+void showmenu();
+void displayBatonik(Batonik &);
 
 int main(){
 
@@ -80,7 +89,8 @@ void zad1() {
 }
 
 void zad2() {
-    
+    Batonik one = {"Millennium Munch", 2.85, 350};
+    displayBatonik(one);
 }
 
 void zad3() {
@@ -101,4 +111,10 @@ void zad6() {
 
 void zad7() {
     
+}
+
+void displayBatonik(Batonik &a){
+    cout << "Nazwa: "<< a.name << endl;
+    cout << "Cena: " << a.price << endl;
+    cout << "Dlugosc: " << a.length << endl;
 }
