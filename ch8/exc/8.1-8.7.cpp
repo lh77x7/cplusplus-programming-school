@@ -2,7 +2,7 @@
 
 /*
 
-1 - NOT DONE
+1 - DONE
 2 - DONE
 3 - NOT DONE
 4 - DONE
@@ -58,6 +58,7 @@ void zad5();
 void zad6();
 void zad7();
 void showmenu();
+void pokazLan(const char *, int n = 0);
 void displayBatonik(Batonik &);
 void set(stringy &, const char *);
 void show(const char *, int n = 1);
@@ -116,6 +117,11 @@ void showmenu(){
 
 void zad1() {
 
+    char lancuch[25] = "Pokaz lancuch!";
+    
+    pokazLan(lancuch);
+    pokazLan(lancuch);
+    pokazLan(lancuch, 1);
 }
 
 void zad2() {
@@ -187,6 +193,17 @@ cout << "------------" << endl;
 SumArray(pd, 3);
 cout << "------------" << endl;
 
+}
+
+void pokazLan(const char *lancuch, int n){
+
+    static int licznik = 0;
+    
+    if(!n) std::cout << lancuch << std::endl;
+    else
+        for(int i = 0; i < licznik; i++)
+            std::cout << lancuch << std::endl;
+    licznik++;
 }
 
 void displayBatonik(Batonik &a){
