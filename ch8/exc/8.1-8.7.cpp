@@ -8,7 +8,7 @@
 4 - NOT DONE
 5 - NOT DONE
 6 - NOT DONE
-7 - NOT DONE
+7 - DONE
 
 */
 
@@ -21,6 +21,19 @@ struct Batonik{
     double price;
     int length;
 };
+
+struct debts{
+    char name[50];
+    double amount;
+};
+
+// deklaracje szablonów
+template <typename T> // szablon A
+void SumArray(T arr[], int n);
+
+template <typename T> // szablon B
+void SumArray(T * arr[], int n);
+
 
 // deklaracje funkcji
 void zad1();
@@ -111,10 +124,53 @@ void zad6() {
 
 void zad7() {
     
+int things[6] = {13, 31, 103, 301, 310, 130};
+struct debts mr_E[3] =
+{
+    {"Ima Wolfe", 2400.0},
+    {"Ura Foxe", 1300.0 },
+    {"Iby Stout", 1800.0 }
+};
+
+double * pd[3];
+
+for(int i = 0; i < 3; i++)
+    pd[i] = &mr_E[i].amount;
+
+cout<< "-------------" << endl;
+SumArray(things, 6);
+cout << "------------" << endl;
+SumArray(pd, 3);
+cout << "------------" << endl;
+
 }
 
 void displayBatonik(Batonik &a){
     cout << "Nazwa: "<< a.name << endl;
     cout << "Cena: " << a.price << endl;
     cout << "Dlugosc: " << a.length << endl;
+}
+
+template <typename T> // szablon A - definicja
+void SumArray(T arr[], int n)
+{
+    int suma = 0;
+    int i;
+    for(i = 0; i < n; i++)
+        suma += arr[i];
+    cout << endl;
+    cout << "Liczba elementow: " << i << endl;
+    cout << "Suma zadluzenia: " << suma << endl;
+}
+
+template <typename T> // szablon B - definicja
+void SumArray(T * arr[], int n)
+{
+    int suma = 0;
+    int i;
+    for(i = 0; i < n; i++)
+        suma += *arr[i];
+    cout << endl;
+    cout << "Liczba elementow: " << i << endl;
+    cout << "Suma zadluzenia: " << suma << endl;
 }
