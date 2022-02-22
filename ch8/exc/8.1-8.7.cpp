@@ -4,7 +4,7 @@
 
 1 - DONE
 2 - DONE
-3 - NOT DONE
+3 - DONE
 4 - DONE
 5 - DONE
 6 - DONE
@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <cstring>
+#include <cctype>
 using namespace std;
 
 // deklaracja struktur
@@ -46,7 +47,6 @@ T max5(T arr[], int n);
 template <typename T> // szablon D
 T maxn(T arr[], int n);
 
-
 template <> const char* maxn(const char* arr[], int);
 
 // deklaracje funkcji
@@ -60,6 +60,7 @@ void zad7();
 void showmenu();
 void pokazLan(const char *, int n = 0);
 void displayBatonik(Batonik &);
+void DuzeLancuch(string &);
 void set(stringy &, const char *);
 void show(const char *, int n = 1);
 void show(const stringy &, int n = 1);
@@ -132,6 +133,19 @@ void zad2() {
 
 void zad3() {
     
+    cin.get();
+    string lancuchtestowy;
+    cout << "Podaj lancuch do testow(q konczy): ";
+    getline(cin, lancuchtestowy);
+    while(lancuchtestowy != "q")
+    {
+        DuzeLancuch(lancuchtestowy);
+        cout << lancuchtestowy << endl;
+        cout << "Nastepny lancuch (q konczy): ";
+        getline(cin, lancuchtestowy);
+
+    }
+    cout << "Wcisnales q - koniec programu.\n";
 }
 
 void zad4() {
@@ -212,6 +226,11 @@ void displayBatonik(Batonik &a){
     cout << "Dlugosc: " << a.length << endl;
 }
 
+void DuzeLancuch(string &lancuch)
+{
+    for(int i = 0; i < lancuch.length(); i++)
+        lancuch[i] = toupper(lancuch[i]);
+}
 
 void set(stringy &ps, const char*ch){
 
@@ -285,7 +304,7 @@ T maxn(T arr[], int n)
     return max;
 }
 
-template <> const char* maxn(const char* arr[], int n)
+template <> const char* maxn(const char* arr[], int n) // szablon specjalizacji
 {
     const char* str = arr[0];
     
