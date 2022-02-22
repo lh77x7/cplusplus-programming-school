@@ -5,8 +5,8 @@
 1 - NOT DONE
 2 - DONE
 3 - NOT DONE
-4 - NOT DONE
-5 - NOT DONE
+4 - DONE
+5 - DONE
 6 - DONE
 7 - DONE
 
@@ -17,6 +17,11 @@
 using namespace std;
 
 // deklaracja struktur
+struct stringy{
+    char * str;
+    int ct;
+};
+
 struct Batonik{
     char name[40];
     double price;
@@ -36,7 +41,11 @@ template <typename T> // szablon B
 void SumArray(T * arr[], int n);
 
 template <typename T> // szablon C
+T max5(T arr[], int n);
+
+template <typename T> // szablon D
 T maxn(T arr[], int n);
+
 
 template <> const char* maxn(const char* arr[], int);
 
@@ -50,6 +59,9 @@ void zad6();
 void zad7();
 void showmenu();
 void displayBatonik(Batonik &);
+void set(stringy &, const char *);
+void show(const char *, int n = 1);
+void show(const stringy &, int n = 1);
 
 int main(){
 
@@ -118,9 +130,24 @@ void zad3() {
 
 void zad4() {
 
+    stringy beany;
+    char testing[] = "Rzeczywistosc to juz nie to, co kiedys.";
+
+    set(beany, testing);
+    show(beany);
+    show(beany, 2);
+    testing[0] = 'D';
+    testing[1] = 'u';
+    show(testing);
+    show(testing, 3);
+    show("Gotowe!");
+    delete[] beany.str;
 }
 
 void zad5() {
+
+    int tablica[5] = {1, 2, 5, 2, 4};
+    cout << "Najwieksza z liczba: " << max5(tablica, 5) << endl;
 
 }
 
@@ -168,6 +195,29 @@ void displayBatonik(Batonik &a){
     cout << "Dlugosc: " << a.length << endl;
 }
 
+
+void set(stringy &ps, const char*ch){
+
+    int len = strlen(ch);
+    char *str = new char[len + 1];
+    strcpy(str, ch);
+    ps.str = str;
+    ps.ct = len;
+}
+
+void show(const char*pc, int n){
+    
+    for(int i = 0; i < n; i++)
+        cout << pc << endl;
+}
+
+void show(const stringy &ps, int n){
+
+    for(int i = 0; i < n; i++)
+        cout << ps.str << endl;
+
+}
+
 template <typename T> // szablon A - definicja
 void SumArray(T arr[], int n)
 {
@@ -195,6 +245,18 @@ void SumArray(T * arr[], int n)
 }
 
 template <typename T> // szablon C - definicja
+T max5(T arr[], int n)
+{
+    T max = arr[0];
+    
+    for(int i = 0; i < 5; i++)
+        if(max < arr[i])
+            max = arr[i];
+
+    return max;
+}
+
+template <typename T> // szablon D - definicja
 T maxn(T arr[], int n)
 {
     T max = arr[0];
