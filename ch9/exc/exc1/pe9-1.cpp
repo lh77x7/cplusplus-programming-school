@@ -6,7 +6,7 @@ extern const int Len;
 int main(void){
 
     int uzytkownicy = 0;
-    int choice;
+    int choice, choice1;
 
     std::cout << "Podaj liczbe uzytkownikow: ";
     std::cin >> uzytkownicy;
@@ -51,32 +51,31 @@ int main(void){
         default:
             std::cout << "\nNie ma takiej opcji.Do zobaczenia\n";
             break;
-
-        std::cout << "Tablica struktur uzytkownikow:\n";
-        for(int i = 0; i < uzytkownicy; i++) {
-            std::cout << "\nUzytkownik " << i + 1 << ":\n";
-            showgolf(pUzytkownicy[i]);
-        }
-
-        std::cout << "Chcesz zmienic handicap dla jednego z uzytkownikow: 1 - Yes, 0 - No";
-        std::cin >> choice;
-        if(choice) {
-            int zawodnik = 0;
-            std::cout << "Wybierz numer zawodnika i nowy handicap: ";
-            std::cin >> zawodnik >> choice;
-            handicap(pUzytkownicy[zawodnik - 1], choice);
-        }
-
-        std::cout << "\nTablica wynikow struktury zawodnikow:\n";
-        for(int i = 0; i < uzytkownicy; i++)         
-        {
-            std::cout << "\nUzytkownik " << i + 1 << ":\n";
-            showgolf(pUzytkownicy[i]);
-        }
-
-        delete pUzytkownicy;
-        pUzytkownicy = NULL;
+    }
+    std::cout << "Tablica struktur uzytkownikow:\n";
+    for(int i = 0; i < uzytkownicy; i++) {
+        std::cout << "\nUzytkownik " << i + 1 << ":\n";
+        showgolf(pUzytkownicy[i]);
     }
 
+    std::cout << "Chcesz zmienic handicap dla jednego z uzytkownikow: 1 - Yes, 0 - No";
+    std::cin >> choice1;
+    if(choice1) {
+        int zawodnik = 0;
+        std::cout << "Wybierz numer zawodnika i nowy handicap: ";
+        std::cin >> zawodnik >> choice1;
+        handicap(pUzytkownicy[zawodnik - 1], choice1);
+    }
+
+    std::cout << "\nTablica wynikow struktury zawodnikow:\n";
+    for(int i = 0; i < uzytkownicy; i++)         
+    {
+        std::cout << "\nUzytkownik " << i + 1 << ":\n";
+        showgolf(pUzytkownicy[i]);
+    }
+
+    delete pUzytkownicy;
+    pUzytkownicy = NULL;
+    
     return 0;
 }
