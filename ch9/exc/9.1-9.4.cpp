@@ -2,9 +2,9 @@
 
 /*
 
-1 - NOT DONE
-2 - NOT DONE
-3 - NOT DONE
+1 - DONE
+2 - DONE
+3 - DONE
 4 - NOT DONE
 
 */
@@ -61,15 +61,15 @@ void showmenu(){
 }
 
 void zad1() {
-
+    cout << "Patrz rozwiazanie exc1.\n";
 }
 
 void zad2() {
-    
+    cout << "Patrz rozwiazanie exc2.\n";
 }
 
 void zad3() {
-    
+    cout << "Patrz rozwiazanie exc3.\n";
 }
 
 void zad4() {
