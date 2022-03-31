@@ -1,27 +1,24 @@
 // stonewt.h -- definition for the Stonewt class
 #ifndef STONEWT_H_
 #define STONEWT_H_
-#include <iostream>
-
 class Stonewt
 {
-    public:
-        enum Type { KAMIENIE, FUNTY, FUNTYULAMEK };
-    private:
-        enum { Lbs_per_stn = 14 };
-        int kamienie;
-        double funty;
-        double ulamekfunta;
-        Type interface;
-    public:
-        Stonewt(double lfun, Type = FUNTY);
-        Stonewt(double lfun, int lkam, Type = KAMIENIE);
-        Stonewt();
-        ~Stonewt();
-        friend std::ostream & operator<< (std::ostream & os, Stonewt &);
-        Stonewt operator+(Stonewt &);
-        Stonewt operator-(Stonewt &);
-        Stonewt operator*(Stonewt &);
+public:
+	enum Type { STOUN, STOUNPOUNDS, POUND };
+private:
+	enum { Lbs_per_stn = 14 };      // pounds per stone
+	int stone;                    // whole stones
+	double pds_left;              // fractional pounds
+	double pounds;                // entire weight in pounds
+	Type interfc;
+public:
+	Stonewt(double lbs, Type = POUND);          // constructor for double pounds
+	Stonewt(int stn, double lbs, Type = STOUN); // constructor for stone, lbs
+	Stonewt();                    // default constructor
+	~Stonewt();
+	friend std::ostream& operator<< (std::ostream & os, Stonewt &);
+	Stonewt operator+(Stonewt &);
+	Stonewt operator-(Stonewt &);
+	Stonewt operator*(Stonewt &);
 };
-
 #endif

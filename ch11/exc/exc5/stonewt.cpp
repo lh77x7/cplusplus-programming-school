@@ -3,67 +3,71 @@
 using std::cout;
 #include "stonewt.h"
 
-Stonewt::Stonewt(double lfun, Type interfejs)
+// construct Stonewt object from double value
+Stonewt::Stonewt(double lbs, Type inter) 
 {
-    interface = interface;
-    kamienie = int(lfun) / Lbs_per_stn;
-    ulamekfunta = int(lfun) % Lbs_per_stn + lfun - int(lfun);
-    funty = lfun;
+	interfc = inter;
+	stone = int(lbs) / Lbs_per_stn;    // integer division
+	pds_left = int(lbs) % Lbs_per_stn + lbs - int(lbs);
+	pounds = lbs;
 }
 
-Stonewt::Stonewt(double lfun, int lkam, Type interfejs)
+// construct Stonewt object from stone, double values
+Stonewt::Stonewt(int stn, double lbs, Type inter)
 {
-    interface = interface;
-    kamienie = lkam;
-    ulamekfunta = lfun;
-    funty = lkam * Lbs_per_stn + lkam;
+	stone = stn;
+	pds_left = lbs;
+	pounds = stn * Lbs_per_stn + lbs;
+	interfc = inter;
 }
 
-Stonewt::Stonewt(): interface(FUNTY)
+Stonewt::Stonewt(): interfc(POUND)          // default constructor, wt = 0
 {
-    kamienie = funty = ulamekfunta = 0; // inicjalizacja zerami dla prywatnych wartości
+	stone = pounds = pds_left = 0;
 }
 
-Stonewt::~Stonewt() // destruktor
+Stonewt::~Stonewt()         // destructor
 {
-};
-
-std::ostream & operator<< (std::ostream & os, Stonewt & var)
-{
-    switch (var.interface)
-    {
-    case 1:
-        os << '\n' << var.kamienie << " kamienie\n"; 
-        break;
-    
-    case 2:
-        os << '\n' << var.kamienie << " kamienie " << var.ulamekfunta << " funtow\n";
-        break;
-
-    case 3:
-        os << '\n' << var.funty << " funtow\n";
-        break;
-    
-    default:
-        os << "\nZle parametry interfejsu\n";
-        break;
-    }
-
-    return os;
 }
 
-// def. operatorów
-Stonewt Stonewt::operator+(Stonewt & var)
-{
-
+std::ostream& operator<< (std::ostream & os, Stonewt & v) {
+	switch (v.interfc){
+	case 0:
+		os << '\n' << v.stone << " stones\n";
+		break;
+	case 1:
+		os << '\n' << v.stone << " stones " << v.pds_left << " pounds\n";
+		break;
+	case 2:
+		os << '\n' << v.pounds << " pounds\n";
+		break;
+	default:
+		os << "\nObject variable member interfc has invalid matters\n";
+		break;
+	}
+	return os;
 }
 
-Stonewt Stonewt::operator-(Stonewt & var)
-{
-
+Stonewt Stonewt::operator+(Stonewt & v){
+	Stonewt Sum;
+	Sum.interfc = this->interfc;
+	Sum.stone = int(this->pounds + v.pounds) / Lbs_per_stn;
+	Sum.pds_left = int(this->pounds + v.pounds) % Lbs_per_stn + (this->pounds + v.pounds) - int(this->pounds + v.pounds);
+	Sum.pounds = this->pounds + v.pounds;
+	return Sum;
 }
-
-Stonewt Stonewt::operator*(Stonewt & var)
-{
-
+Stonewt Stonewt::operator-(Stonewt & v) {
+	Stonewt Dif;
+	Dif.interfc = this->interfc;
+	Dif.stone = int(this->pounds - v.pounds) / Lbs_per_stn;
+	Dif.pds_left = int(this->pounds - v.pounds) % Lbs_per_stn + (this->pounds - v.pounds) - int(this->pounds - v.pounds);
+	Dif.pounds = this->pounds - v.pounds;
+	return Dif;
+}
+Stonewt Stonewt::operator*(Stonewt & v) {
+	Stonewt s;
+	s.stone = int(pounds*v.pounds) / Lbs_per_stn;    // integer division
+	s.pds_left = int(pounds*v.pounds) % Lbs_per_stn + (pounds*v.pounds) - int(pounds*v.pounds);
+	s.pounds *= pounds * v.pounds;
+	return s;
 }
