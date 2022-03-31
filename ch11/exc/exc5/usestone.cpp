@@ -1,5 +1,6 @@
 // usestone.cpp -- user-defined conversions
 // compile with stonewt.cpp
+
 #include <iostream>
 using std::cout;
 #include "stonewt.h"
