@@ -1,0 +1,1 @@
+// string2.cpp -- implementacja metod klasy String2
