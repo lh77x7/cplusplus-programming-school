@@ -4,7 +4,7 @@ using namespace std;
 #include "string2.h"
 int main()
 {
-	String s1(" I uczę się C++.");
+	String s1(" I ucze sie C++.");
 	String s2 = "Podaj swoje imie: ";
 	String s3;
 	cout << s2; // przeciążony operator <<
@@ -28,7 +28,7 @@ int main()
 		{
 			if (ans == rgb[i]) // overloaded == operator
 			{
-				cout << "Prawidłowo!\n";
+				cout << "Prawidlowo!\n";
 				success = true;
 				break;
 			}
