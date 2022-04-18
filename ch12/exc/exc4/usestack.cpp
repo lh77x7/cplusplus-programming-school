@@ -1,4 +1,5 @@
-// stacker.cpp -- test klasy Stack
+// usestack.cpp -- program testujący klasę Stack (ćwiczenie 4 rozdział 12)
+
 #include <iostream>
 #include <cctype>   // albo ctype.h
 #include "stack.h"
