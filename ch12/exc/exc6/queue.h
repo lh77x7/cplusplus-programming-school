@@ -1,4 +1,4 @@
-// queue.h -- interfejs kolejki, ćwiczenie 5 rozdział 12
+// queue.h -- interfejs kolejki, ćwiczenie 6 rozdział 12
 #ifndef QUEUE_H_
 #define QUEUE_H_
 

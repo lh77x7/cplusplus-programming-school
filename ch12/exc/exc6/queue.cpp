@@ -1,4 +1,4 @@
-// queue.cpp -- implementacje metod klas Queue i Customer, ćwiczenie 5 rozdział 12
+// queue.cpp -- implementacje metod klas Queue i Customer, ćwiczenie 6 rozdział 12
 #include "queue.h"
 #include <cstdlib>  // lub stdlib.h -- fun. rand()
 

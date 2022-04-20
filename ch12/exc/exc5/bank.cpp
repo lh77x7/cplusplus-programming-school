@@ -1,4 +1,4 @@
-// bank.cpp -- test interfejsu klasy Queue
+// bank.cpp -- test interfejsu klasy Queue, ćwiczenie 5 rozdział 12
 // kompilować z plikiem queue.cpp
 #include <iostream>
 #include <cstdlib>  // fun. rand() i srand()
@@ -30,12 +30,12 @@ int main()
     long cyclelimit = MIN_PER_HR * hours;   // liczba cykli
 
     cout << "Podaj srednia liczbe klientow na godzine: ";
-    double perhour = 1;     // srednia liczba nowych klientów na godzinę
-    double average_wait_time = 0; // average waiting time for perhour customers
+    double perhour = 1;     // średnia liczba nowych klientów na godzinę
+    double average_wait_time = 0; // średni czas czekania na godzinę
 	for (; true; ++perhour) {
-		Queue line(qs);         // line queue holds up to qs people
+		Queue line(qs);      
 		//cin >> perhour;
-		double min_per_cust;    // sredni odstęp czasowy między klientami
+		double min_per_cust;    // średni odstęp czasowy między klientami
 		min_per_cust = MIN_PER_HR / perhour;
     // cin >> perhour;
 
