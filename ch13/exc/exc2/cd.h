@@ -1,0 +1,1 @@
+// cd.h -- plik nagłówkowy dla klasy Cd i klasy pochodnej Classic, ćwiczenie 2 rozdział 13

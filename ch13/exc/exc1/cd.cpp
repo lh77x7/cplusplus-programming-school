@@ -1,3 +1,4 @@
+// metody klasy Cd i Classic: ćwiczenie 1 rozdział 13
 #include <iostream>
 #include <cstring>
 #include "cd.h"

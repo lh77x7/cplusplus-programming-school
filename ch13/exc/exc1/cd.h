@@ -1,4 +1,4 @@
-// cd.h -- plik nagłówkowy dla klasy Cd i klasy pochodnej Classic
+// cd.h -- plik nagłówkowy dla klasy Cd i klasy pochodnej Classic, ćwiczenie 1 rozdział 13
 
 #ifndef CD_H_
 #define CD_H_
