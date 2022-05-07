@@ -5,7 +5,7 @@ template <class Type>
 class Stack
 {
     private:
-        enum {MAX = 10;}    // stała specyficzna dla klasy
+        enum { MAX = 10 };  // stała specyficzna dla klasy
         Type item[MAX];     // przechowuje elementy stosu
         int top;            // indeks elementu ze szczytu stosu
     public:
