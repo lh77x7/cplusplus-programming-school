@@ -6,7 +6,7 @@ class Stack
 {
     private:
         enum { MAX = 10 };  // stała specyficzna dla klasy
-        Type item[MAX];     // przechowuje elementy stosu
+        Type items[MAX];     // przechowuje elementy stosu
         int top;            // indeks elementu ze szczytu stosu
     public:
         Stack();
