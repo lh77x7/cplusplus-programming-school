@@ -3,7 +3,7 @@
       {
           "name": "Win32",
           "includePath": [
-              "C:/Private/Programming/Projects/C++/Cplusplus-szkola-programowania/include",
+              "C:/Prywatny/Programming/Projects/C++/Cplusplus-szkola-programowania/include",
               "${default}"
           ],
           "defines": [
