@@ -8,6 +8,7 @@ All of them have solutions for programming exercises:
 ch1/exc/*.cpp
 
 What mean:
+
 First chapter have examples:
 first.cpp, second.cpp
 
