@@ -4,7 +4,7 @@ c++ programming school
 All chapters have examples:
 ch1/*.cpp
 
-All of them have have solutions for programming exercises:
+All of them have solutions for programming exercises:
 ch1/exc/*.cpp
 
 What mean:
