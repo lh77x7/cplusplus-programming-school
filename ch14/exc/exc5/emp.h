@@ -15,7 +15,7 @@ public:
 	virtual void SetAll(); // prompts user for values
 	friend std::ostream & operator<<(std::ostream & os, const abstr_emp & e);
 	// just displays first and last name
-	virtual ~abstr_emp() = 0; // virtual base class
+	virtual ~abstr_emp() {}; // virtual base class
 };
 class employee : public abstr_emp
 {
