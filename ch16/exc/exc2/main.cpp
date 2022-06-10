@@ -1,3 +1,4 @@
+// ćwiczenie 2 rozdział 16
 #include<cctype>
 #include<iostream>
 #include<string>

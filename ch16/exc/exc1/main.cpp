@@ -1,3 +1,4 @@
+// ćwiczenie 1 rozdział 16
 #include<iostream>
 #include<string>
 bool AnalyzePolindrom(std::string &); // return true if the argument is polindrom

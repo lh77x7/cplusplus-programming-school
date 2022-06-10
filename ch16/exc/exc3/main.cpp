@@ -1,4 +1,4 @@
-// hangman.cpp -- some string methods
+// hangman.cpp -- some string methods (ćwiczenie 3 rozdział 16)
 #include <iostream>
 #include <string>
 #include <cstdlib>

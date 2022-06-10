@@ -1,3 +1,4 @@
+// ćwiczenie 7 rozdział 16
 #include<algorithm>
 #include<ctime>
 #include <iostream>

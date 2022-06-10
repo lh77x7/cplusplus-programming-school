@@ -1,4 +1,4 @@
-// queue.cpp -- Queue and Customer methods
+// queue.cpp -- Queue and Customer methods (ćwiczenie 6 rozdział 16)
 #include "queue.h"
 #include <cstdlib>         // (or stdlib.h) for rand()
 
