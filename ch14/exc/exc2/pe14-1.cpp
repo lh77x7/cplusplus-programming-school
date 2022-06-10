@@ -1,4 +1,4 @@
-// pe14-1.cpp -- using Wine class with containment
+// pe14-1.cpp -- using Wine class with containment (ćwiczenie 2 rozdział 14)
 #include <iostream>
 #include "winec.h"
 int main(void)

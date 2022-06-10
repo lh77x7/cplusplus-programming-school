@@ -1,4 +1,4 @@
-// workmi.cpp -- multiple inheritance
+// workmi.cpp -- multiple inheritance (ćwiczenie 4 rozdział 14)
 // compile with workermi.cpp
 #include <iostream>
 #include <cstring>

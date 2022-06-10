@@ -1,4 +1,4 @@
-// pe14-5.cpp
+// pe14-5.cpp (ćwiczenie 5 rozdział 14)
 // useemp1.cpp -- using the abstr_emp classes
 #include <iostream>
 using namespace std;
