@@ -1,4 +1,4 @@
-// sales.cpp -- Sales implementation
+// sales.cpp -- Sales implementation (ćwiczenie 4 rozdział 15)
 #include "sales.h"
 using std::string;
 

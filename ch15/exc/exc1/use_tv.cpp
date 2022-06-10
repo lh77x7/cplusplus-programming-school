@@ -1,4 +1,4 @@
-//use_tv.cpp -- using the Tv and Remote classes
+//use_tv.cpp -- using the Tv and Remote classes (ćwiczenie 1 rozdział 15)
 #include <iostream>
 #include "tv.h"
 
