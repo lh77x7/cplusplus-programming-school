@@ -1,3 +1,4 @@
+// ćwiczenie 8 rozdział 16
 #include<algorithm>
 #include <iostream>
 #include<list>
