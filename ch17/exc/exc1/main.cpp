@@ -1,3 +1,4 @@
+// ćwiczenie 1 rozdział 17
 #include <iostream>
 #include<string>
 
