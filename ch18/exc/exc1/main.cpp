@@ -1,3 +1,4 @@
+// ćwiczenie 1 rozdział 18
 #include<iostream>
 #include<initializer_list>
 
