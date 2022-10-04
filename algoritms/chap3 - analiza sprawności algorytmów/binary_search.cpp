@@ -1,7 +1,7 @@
 int binary_search(int *tab, int x, int left, int right)
 {
     if(left == right)
-        if(t[left] == x)
+        if(tab[left] == x)
             return left;
         else            // element znaleziony
             return -1;  // element nie odnaleziony
