@@ -12,8 +12,8 @@ int binary_search(int *tab, int x, int left, int right)
                 return mid;     // element znaleziony !
             else
                 if(x < tab[mid])
-                    return szukaj_rec(tab, x, left, mid);
+                    return binary_search(tab, x, left, mid);
                 else   
-                    return szukaj_rec(tab, x, mid, right);
+                    return binary_search(tab, x, mid, right);
         } 
 }
