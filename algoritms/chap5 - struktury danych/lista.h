@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+using namespace std;
+
 typedef struct rob
 {
     int wartosc;
