@@ -141,3 +141,30 @@ LISTA &operator +(LISTA &x, LISTA &y)
     }
     return (*temp);
 }
+
+int main()
+{
+    LISTA l1, l2;
+    const int n = 6;
+    int tab1[n] = {2, 5, -11, 4, 14, 12};
+    int tab2[n] = {9, 6, 77, 1, 7, 4};
+    // każdy element tablicy zostanie wstawiony do listy
+    cout << "\nL1 = ";
+        for(int i = 0; i < n; l1.dorzuc2(tab1[i++]));
+    l1.wypisz();        // wypisz l1
+    cout << "\nL2 = ";
+        for(int i = 0; i < n; l2.dorzuc2(tab2[i++]));
+    l2.wypisz();        // wypisz l2
+    cout << "Efekt poszukiwania liczby 14 w liscie l1: " << l1.szukaj(14) << endl;
+    cout << "Efekt poszukiwania liczby 0 w liscie l1: " << l1.szukaj(0) << endl;
+    cout << "Oto lista bedaca suma dwoch poprzednich\nL3 = ";
+    LISTA l3 = l1 + l2;
+    l3.wypisz();
+    cout << "Listy l1 i l2 pozostaly bez zmian:\nL1";
+    l1.wypisz();
+    cout << "L2 = "; 
+    l2.wypisz();
+    l1.dorzuc2(80); l1.dorzuc2(8);
+    cout << "L1 = ";
+    l1.wypisz();
+}
