@@ -1,8 +1,8 @@
 // strategia "w głąb"
 
-#include<iostream>
-#include<vector>
-#include<stack>
+#include <iostream>
+#include <vector>
+#include <stack>
 
 using namespace std;
  
