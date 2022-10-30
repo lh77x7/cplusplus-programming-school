@@ -36,7 +36,7 @@ void Sterta::DoGory()
     int temp = t[L];
     int n = L;
 
-    while ((n! = 1) && (t[n/2] <= temp))
+    while ((n!= 1) && (t[n/2] <= temp))
     {
         t[n] = t[n / 2];
         n = n / 2;
