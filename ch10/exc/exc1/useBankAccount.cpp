@@ -3,7 +3,7 @@
 int main()
 {
 
-    BankAccount *pAccountObj = new BankAccount("Lesz Hat", "123456", 1000000);
+    BankAccount *pAccountObj = new BankAccount("X", "123456", 1000000);
     std::string menu = "\nMenu: \n1 - account information \n2 - top up account \n3 - withdraw money\n0 - wyjdz\nEnter your choice: ";
     cout << menu;
     
